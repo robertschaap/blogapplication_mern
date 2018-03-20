@@ -1,30 +1,30 @@
-'use strict';
+"use strict";
 
-const fs = require('fs');
-const path = require('path');
-const paths = require('./paths');
+const fs = require("fs");
+const path = require("path");
+const paths = require("./paths");
 
-delete require.cache[require.resolve('./paths')];
+delete require.cache[require.resolve("./paths")];
 
 const NODE_ENV = process.env.NODE_ENV;
 if (!NODE_ENV) {
   throw new Error(
-    'The NODE_ENV environment variable is required but was not specified.'
+    "The NODE_ENV environment variable is required but was not specified."
   );
 }
 
-var dotenvFiles = [
+let dotenvFiles = [
   `${paths.dotenv}.${NODE_ENV}.local`,
   `${paths.dotenv}.${NODE_ENV}`,
 
-  NODE_ENV !== 'test' && `${paths.dotenv}.local`,
+  NODE_ENV !== "test" && `${paths.dotenv}.local`,
   paths.dotenv,
 ].filter(Boolean);
 
 dotenvFiles.forEach(dotenvFile => {
   if (fs.existsSync(dotenvFile)) {
-    require('dotenv-expand')(
-      require('dotenv').config({
+    require("dotenv-expand")(
+      require("dotenv").config({
         path: dotenvFile,
       })
     );
@@ -32,7 +32,7 @@ dotenvFiles.forEach(dotenvFile => {
 });
 
 const appDirectory = fs.realpathSync(process.cwd());
-process.env.NODE_PATH = (process.env.NODE_PATH || '')
+process.env.NODE_PATH = (process.env.NODE_PATH || "")
   .split(path.delimiter)
   .filter(folder => folder && !path.isAbsolute(folder))
   .map(folder => path.resolve(appDirectory, folder))
@@ -47,14 +47,13 @@ function getClientEnvironment(publicUrl) {
       (env, key) => {
         env[key] = process.env[key];
         return env;
-      },
-      {
-        NODE_ENV: process.env.NODE_ENV || 'development',
+      }, {
+        NODE_ENV: process.env.NODE_ENV || "development",
         PUBLIC_URL: publicUrl,
       }
     );
   const stringified = {
-    'process.env': Object.keys(raw).reduce((env, key) => {
+    "process.env": Object.keys(raw).reduce((env, key) => {
       env[key] = JSON.stringify(raw[key]);
       return env;
     }, {}),

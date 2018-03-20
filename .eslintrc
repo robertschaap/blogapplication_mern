@@ -1,0 +1,93 @@
+{
+  "env": {
+    "browser": true,
+    "es6": true,
+    "node": true
+  },
+  "extends": "eslint:recommended",
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "experimentalObjectRestSpread": true,
+      "jsx": true
+    },
+    "sourceType": "module"
+  },
+  "plugins": [
+    "react"
+  ],
+  "rules": {
+    "no-console": "off",
+    "keyword-spacing": ["error", {
+      "before": true
+    }],
+    "jsx-quotes": [2,
+      "prefer-double"
+    ],
+    "space-before-function-paren": ["error", {
+      "anonymous": "always",
+      "named": "never",
+      "asyncArrow": "always"
+    }],
+    "brace-style": ["error", "1tbs"],
+    "no-multiple-empty-lines": ["error", {
+      "max": 1
+    }],
+    "react/jsx-max-props-per-line": ["error", {
+      "maximum": 3
+    }],
+    "react/jsx-boolean-value": "error",
+    "react/jsx-closing-bracket-location": ["error", {
+      "selfClosing": "after-props",
+      "nonEmpty": "after-props"
+    }],
+    "react/jsx-curly-spacing": "error",
+    "react/jsx-indent-props": ["error", 2],
+    "react/jsx-key": "error",
+    "react/jsx-no-bind": ["error", {
+      "ignoreRefs": true,
+      "allowArrowFunctions": true
+    }],
+    "react/jsx-no-duplicate-props": "error",
+    "react/jsx-no-undef": "error",
+    "react/jsx-pascal-case": "error",
+    "react/jsx-tag-spacing": ["error", {
+      "beforeSelfClosing": "always"
+    }],
+    "react/jsx-wrap-multilines": "error",
+    "react/no-danger": "error",
+    "react/no-did-mount-set-state": "error",
+    "react/no-did-update-set-state": "error",
+    "react/no-direct-mutation-state": "error",
+    "react/no-multi-comp": ["error", {
+      "ignoreStateless": true
+    }],
+    "react/no-unknown-property": "error",
+    "react/prefer-es6-class": "error",
+    "react/react-in-jsx-scope": "error",
+    "react/self-closing-comp": "error",
+    "object-curly-spacing": [
+      "error",
+      "always"
+    ],
+    "indent-legacy": [
+      "error",
+      2
+    ],
+    "linebreak-style": [
+      "error",
+      "unix"
+    ],
+    "react/jsx-uses-react": "error",
+    "react/jsx-uses-vars": "error",
+    "quotes": [
+      "error",
+      "double"
+    ],
+    "semi": [
+      "error",
+      "always"
+    ],
+    "no-var": "error"
+  }
+}
