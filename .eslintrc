@@ -18,76 +18,76 @@
   ],
   "rules": {
     "no-console": "off",
-    "keyword-spacing": ["error", {
+    "keyword-spacing": ["warn", {
       "before": true
     }],
     "jsx-quotes": [2,
       "prefer-double"
     ],
-    "space-before-function-paren": ["error", {
+    "space-before-function-paren": ["warn", {
       "anonymous": "always",
       "named": "never",
       "asyncArrow": "always"
     }],
-    "brace-style": ["error", "1tbs"],
-    "no-multiple-empty-lines": ["error", {
+    "brace-style": ["warn", "1tbs"],
+    "no-multiple-empty-lines": ["warn", {
       "max": 1
     }],
-    "react/jsx-max-props-per-line": ["error", {
+    "react/jsx-max-props-per-line": ["warn", {
       "maximum": 3
     }],
-    "react/jsx-boolean-value": "error",
-    "react/jsx-closing-bracket-location": ["error", {
+    "react/jsx-boolean-value": "warn",
+    "react/jsx-closing-bracket-location": ["warn", {
       "selfClosing": "after-props",
       "nonEmpty": "after-props"
     }],
-    "react/jsx-curly-spacing": "error",
-    "react/jsx-indent-props": ["error", 2],
-    "react/jsx-key": "error",
-    "react/jsx-no-bind": ["error", {
+    "react/jsx-curly-spacing": "warn",
+    "react/jsx-indent-props": ["warn", 2],
+    "react/jsx-key": "warn",
+    "react/jsx-no-bind": ["warn", {
       "ignoreRefs": true,
       "allowArrowFunctions": true
     }],
-    "react/jsx-no-duplicate-props": "error",
-    "react/jsx-no-undef": "error",
-    "react/jsx-pascal-case": "error",
-    "react/jsx-tag-spacing": ["error", {
+    "react/jsx-no-duplicate-props": "warn",
+    "react/jsx-no-undef": "warn",
+    "react/jsx-pascal-case": "warn",
+    "react/jsx-tag-spacing": ["warn", {
       "beforeSelfClosing": "always"
     }],
-    "react/jsx-wrap-multilines": "error",
-    "react/no-danger": "error",
-    "react/no-did-mount-set-state": "error",
-    "react/no-did-update-set-state": "error",
-    "react/no-direct-mutation-state": "error",
-    "react/no-multi-comp": ["error", {
+    "react/jsx-wrap-multilines": "warn",
+    "react/no-danger": "warn",
+    "react/no-did-mount-set-state": "warn",
+    "react/no-did-update-set-state": "warn",
+    "react/no-direct-mutation-state": "warn",
+    "react/no-multi-comp": ["warn", {
       "ignoreStateless": true
     }],
-    "react/no-unknown-property": "error",
-    "react/prefer-es6-class": "error",
-    "react/react-in-jsx-scope": "error",
-    "react/self-closing-comp": "error",
+    "react/no-unknown-property": "warn",
+    "react/prefer-es6-class": "warn",
+    "react/react-in-jsx-scope": "warn",
+    "react/self-closing-comp": "warn",
     "object-curly-spacing": [
-      "error",
+      "warn",
       "always"
     ],
     "indent-legacy": [
-      "error",
+      "warn",
       2
     ],
     "linebreak-style": [
-      "error",
+      "warn",
       "unix"
     ],
-    "react/jsx-uses-react": "error",
-    "react/jsx-uses-vars": "error",
+    "react/jsx-uses-react": "warn",
+    "react/jsx-uses-vars": "warn",
     "quotes": [
-      "error",
+      "warn",
       "double"
     ],
     "semi": [
-      "error",
+      "warn",
       "always"
     ],
-    "no-var": "error"
+    "no-var": "warn"
   }
 }
