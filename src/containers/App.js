@@ -1,19 +1,15 @@
 import React, { Component } from "react";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
-import PostTiles from "../components/PostTiles";
+// import Home from "./Home";
+import PostsAll from "./PostsAll";
+// import PostsOne from "./PostsOne";
 
 class App extends Component {
   render() {
     return (
       <div>
-        <Header />
-
-        <main>
-          <PostTiles />
-        </main>
-
-        <Footer />
+        {/* <Home /> */}
+        <PostsAll />
+        {/* <PostsOne /> */}
       </div>
     );
   }
