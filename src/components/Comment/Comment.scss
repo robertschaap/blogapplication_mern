@@ -1,0 +1,25 @@
+.component:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.top {
+  img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50px;
+    float: left;
+  }
+}
+.bottom {
+  padding-left: 1rem;
+  margin-bottom: 1rem;
+  float: left;
+  width: calc(100% - 40px);
+}
+
+.author {
+  margin-bottom: 0;
+  border-bottom: 1px solid #eee;
+}

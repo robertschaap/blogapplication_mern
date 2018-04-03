@@ -14,7 +14,7 @@ const PostTiles = ({ homepage }) => {
       <PostTile key={3} small title={"Title"} author={"Author"} />,
       <PostTile key={4} title={"Title"} author={"Author"} />,
       <PostTile key={5} title={"Title"} author={"Author"} />,
-    ]
+    ];
   } else {
     tiles = [
       <PostTile key={0} title={"Title"} author={"Author"} />,
@@ -23,7 +23,7 @@ const PostTiles = ({ homepage }) => {
       <PostTile key={3} title={"Title"} author={"Author"} />,
       <PostTile key={4} title={"Title"} author={"Author"} />,
       <PostTile key={5} title={"Title"} author={"Author"} />,
-    ]
+    ];
   }
 
   return (
