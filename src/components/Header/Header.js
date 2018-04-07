@@ -1,5 +1,7 @@
 import React from "react";
 import styles from "./Header.scss";
+import Login from "../Login";
+import Navigation from "../Navigation";
 
 const Header = () => (
   <header 
@@ -10,20 +12,10 @@ const Header = () => (
       role="navigation">
       <h1>.Dotted Pixels</h1>
       
-      <div className={styles.signinup}>
-        <a href="#">Sign In</a>
-        <a href="#">Sign Up</a>
-      </div>
+      <Login />
     </nav>
 
-    <nav role="navigation">
-      <a href="#">Home</a>
-      <a href="#">All Posts</a>
-      <a href="#">Technology</a>
-      <a href="#">Design</a>
-      <a href="#">Entrepreneur</a>
-      <a href="#">Anything</a>
-    </nav>
+    <Navigation />
   </header>
 );
 

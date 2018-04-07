@@ -1,0 +1,11 @@
+.component {
+  a {
+    padding: 0.3rem 0.5rem;
+    text-decoration: none;
+    color: #666;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

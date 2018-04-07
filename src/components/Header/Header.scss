@@ -1,16 +1,6 @@
 .component {
   padding: 1rem 0rem;
   margin-bottom: 1rem;
-
-  a {
-    padding: 0.3rem 0.5rem;
-    text-decoration: none;
-    color: #666;
-
-    &:hover {
-      text-decoration: underline;
-    }
-  }
 }
 
 
@@ -25,23 +15,5 @@
 
   h1 {
     float: left;
-  }
-
-  .signinup {
-    float: right;
-    margin-top: 1.3rem;
-
-    a {
-      border: 1px solid #666;
-      border-radius: 5px;
-      margin-left: 5px;
-      transition: 0.3s;
-
-      &:hover {
-        text-decoration: none;
-        color: white;
-        background-color: #666;
-      }
-    }
   }
 }
