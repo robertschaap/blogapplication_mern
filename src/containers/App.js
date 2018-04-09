@@ -1,17 +1,20 @@
 import React, { Component } from "react";
-// import Home from "./Home";
-// import PostsAll from "./PostsAll";
+import { BrowserRouter, Route } from "react-router-dom";
+import Home from "./Home";
+import PostsAll from "./PostsAll";
 import PostsOne from "./PostsOne";
 import Layout from "./Layout";
 
 class App extends Component {
   render() {
     return (
-      <Layout>
-        {/* <Home /> */}
-        {/* <PostsAll /> */}
-        <PostsOne  />
-      </Layout>
+      <BrowserRouter>
+        <Layout>
+          <Route path="/" component={Home}  />
+          <Route path="/" component={PostsAll}  />
+          <Route path="/" component={PostsOne}  />
+        </Layout>
+      </BrowserRouter>
     );
   }
 }
