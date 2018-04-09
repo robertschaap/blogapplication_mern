@@ -1,13 +1,12 @@
 import React from "react";
-import Layout from "./Layout";
 import CategoryHeader from "../components/CategoryHeader";
 import PostTiles from "../components/PostTiles";
 
 const PostsAll = () => (
-  <Layout>
+  <main>
     <CategoryHeader category={"Robert"} />
     <PostTiles />
-  </Layout>
+  </main>
 );
 
 export default PostsAll;
