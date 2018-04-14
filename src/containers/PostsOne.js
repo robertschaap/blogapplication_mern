@@ -1,28 +1,31 @@
-import React from "react";
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { loadOnePost, getLoadOnePost, getLoadComments } from "../redux";
+
 import Post from "../components/Post";
 
-const post = {
-  postAuthor: {
-    firstName: "Robert",
-    lastName: "Schaap",
-    bio: "Lalala"
-  },
-  postBody: {
-    title: "A Post",
-    body: "Lorum ipsum dolor sit amet"
+class PostsOne extends Component {
+  render() {
+    const { post, comments } = this.props;
+
+    return (
+      <main>
+        <Post post={post} comments={comments} />
+      </main>
+    );
   }
+}
+  
+const mapStateToProps = state => ({
+  post: getLoadOnePost(state),
+  comments: getLoadComments(state)
+});
+
+const mapDispatchToProps = {
+  loadOnePost,
 };
 
-const comments = [
-  { user: { firstName: "Robert", lastName: "Schaap" }, body: "Hi" },
-  { user: { firstName: "Robert", lastName: "Schaap" }, body: "Hi" },
-  { user: { firstName: "Robert", lastName: "Schaap" }, body: "Hi" },
-];
-
-const PostsOne = () => (
-  <main>
-    <Post post={post} comments={comments} />
-  </main>
-);
-
-export default PostsOne;
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(PostsOne);
