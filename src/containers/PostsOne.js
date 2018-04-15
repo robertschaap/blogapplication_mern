@@ -5,6 +5,14 @@ import { loadOnePost, getLoadOnePost, getLoadComments } from "../redux";
 import Post from "../components/Post";
 
 class PostsOne extends Component {
+  componentWillMount() {
+    this.fetchPost(this.props.match.params.id);
+  }
+
+  fetchPost = (id) => {
+    console.log(id);
+  }
+
   render() {
     const { post, comments } = this.props;
 

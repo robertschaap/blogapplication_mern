@@ -10,9 +10,9 @@ class App extends Component {
     return (
       <BrowserRouter>
         <Layout>
-          <Route path="/" component={Home}  />
-          <Route path="/" component={PostsAll}  />
-          <Route path="/" component={PostsOne}  />
+          <Route exact path="/" component={Home}  />
+          <Route exact path="/posts" component={PostsAll}  />
+          <Route path="/posts/:id" component={PostsOne}  />
         </Layout>
       </BrowserRouter>
     );

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styles from "./PostTile.scss";
 import cx from "classnames";
 
@@ -13,7 +14,7 @@ const PostTile = ({ large, small, title, author }) => {
         [styles.small]: small,
         [styles.textOnly]: !hasImage
       })}>
-      <a href="#">
+      <Link to="/posts/1">
         {hasImage && (
           <div className={styles.image} />
         )}
@@ -21,7 +22,7 @@ const PostTile = ({ large, small, title, author }) => {
           <h2>{title}</h2>
           <p>{author}</p>
         </div>
-      </a>
+      </Link>
     </article>
   );
 };
