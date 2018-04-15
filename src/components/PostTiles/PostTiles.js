@@ -2,29 +2,39 @@ import React from "react";
 import styles from "./PostTiles.scss";
 import PostTile from "../PostTile";
 
-const PostTiles = ({ homepage }) => {
+const PostTiles = ({ homepage, posts }) => {
 
-  let tiles = [];
+  let tiles = posts.map((post, index) => {
+    if (homepage && index <= 1) {
+      return (
+      <PostTile
+        large
+        key={post.id}
+        id={post.id}
+        title={post.title}
+        author={post.author} />
+      );
 
-  if (homepage) {
-    tiles = [
-      <PostTile key={0} large title={"Title"} author={"Author"} />,
-      <PostTile key={1} large title={"Title"} author={"Author"} />,
-      <PostTile key={2} small title={"Title"} author={"Author"} />,
-      <PostTile key={3} small title={"Title"} author={"Author"} />,
-      <PostTile key={4} title={"Title"} author={"Author"} />,
-      <PostTile key={5} title={"Title"} author={"Author"} />,
-    ];
-  } else {
-    tiles = [
-      <PostTile key={0} title={"Title"} author={"Author"} />,
-      <PostTile key={1} title={"Title"} author={"Author"} />,
-      <PostTile key={2} title={"Title"} author={"Author"} />,
-      <PostTile key={3} title={"Title"} author={"Author"} />,
-      <PostTile key={4} title={"Title"} author={"Author"} />,
-      <PostTile key={5} title={"Title"} author={"Author"} />,
-    ];
-  }
+    } else if (homepage && index <= 3) {
+      return (
+        <PostTile
+          small
+          key={post.id}
+          id={post.id}
+          title={post.title}
+          author={post.author} />
+      );
+
+    } else {
+      return (
+        <PostTile 
+          key={post.id}
+          id={post.id}
+          title={post.title}
+          author={post.author} />
+      );
+    }
+  });
 
   return (
     <section className={styles.component}>
