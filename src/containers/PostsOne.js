@@ -1,20 +1,26 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { loadOnePost, getLoadOnePost, getLoadComments } from "../redux";
+import { loadOnePost, getLoadOnePost } from "../redux";
 
 import Post from "../components/Post";
 
 class PostsOne extends Component {
   componentWillMount() {
-    this.fetchPost(this.props.match.params.id);
+    this.props.post;
   }
-
+  
   fetchPost = (id) => {
-    console.log(id);
+    fetch(`/api/posts/${id}`)
+      .then(res => res.json())
+      .then(json => this.props.loadOnePost(json));
+  }
+  
+  componentDidMount() {
+    this.fetchPost();
   }
 
   render() {
-    const { post, comments } = this.props;
+    const { post, comments } = this.props.onePost;
 
     return (
       <main>
@@ -25,12 +31,11 @@ class PostsOne extends Component {
 }
   
 const mapStateToProps = state => ({
-  post: getLoadOnePost(state),
-  comments: getLoadComments(state)
+  onePost: getLoadOnePost(state),
 });
 
 const mapDispatchToProps = {
-  loadOnePost,
+  loadOnePost
 };
 
 export default connect(

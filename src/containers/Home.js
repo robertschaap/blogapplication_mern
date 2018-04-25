@@ -1,19 +1,42 @@
-import React from "react";
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { loadPosts, getLoadPosts } from "../redux";
 import PostTiles from "../components/PostTiles";
 
-let posts =  [
-  { id: 1, title: "Title", author: "Author" },
-  { id: 2, title: "Title", author: "Author" },
-  { id: 3, title: "Title", author: "Author" },
-  { id: 4, title: "Title", author: "Author" },
-  { id: 5, title: "Title", author: "Author" },
-  { id: 6, title: "Title", author: "Author" }
-];
+class Home extends Component {
+  componentWillMount() {
+    this.props.posts;
+  }
+  componentDidMount() {
+    this.fetchPost();
+  }
+  
+  fetchPost = () => {
+    fetch("/api/posts/")
+      .then(res => res.json())
+      .then(json => this.props.loadPosts(json));
+  }
 
-const Home = () => (
-  <main>
-    <PostTiles posts={posts} homepage />
-  </main>
-);
+  render() {
+    const { posts } = this.props;
 
-export default Home;
+    return (
+      <main>
+        <PostTiles posts={posts} homepage />
+      </main>
+    );
+  }
+}
+
+const mapStateToProps = state => ({
+  posts: getLoadPosts(state)
+});
+
+const mapDispatchToProps = {
+  loadPosts
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Home);

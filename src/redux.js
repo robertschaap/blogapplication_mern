@@ -2,40 +2,49 @@ import { createStore, combineReducers } from "redux";
 
 const initialPostState = {
   post: {
-    postAuthor: {
-      firstName: "Robert",
-      lastName: "Schaap",
-      bio: "Lalala"
-    },
-    postBody: {
-      title: "A Post",
-      body: "Lorum ipsum dolor sit amet"
-    }
+    postAuthor: {},
+    postBody: {}
   },
   comments: []
 };
 
+const initialPostsState =  [];
+
 const LOAD_ONE_POST = "LOAD_ONE_POST";
+
+const LOAD_POSTS = "LOAD_POSTS";
 
 export const onePost = (state = initialPostState, action) => {
   switch (action.type) {
   case LOAD_ONE_POST:
-    return {
-      ...state
-    };
-
+    return action.payload;
   default:
     return state;
   }
 };
 
+export const posts = (state = initialPostsState, action) => {
+  switch (action.type) {
+  case LOAD_POSTS:
+    return action.payload;
+  default: 
+    return state;
+  }
+};
+
 export const reducers = combineReducers({
-  onePost
+  onePost,
+  posts
 });
 
 // Actions
 export const loadOnePost = (payload) => ({
   type: LOAD_ONE_POST,
+  payload
+});
+
+export const loadPosts = (payload) => ({
+  type: LOAD_POSTS,
   payload
 });
 
@@ -46,5 +55,5 @@ export const store = createStore(
 );
 
 // Selector
-export const getLoadOnePost = state => state.onePost.post;
-export const getLoadComments = state => state.onePost.comments;
+export const getLoadOnePost = state => state.onePost;
+export const getLoadPosts = state => state.posts;
