@@ -6,17 +6,11 @@ import Post from "../components/Post";
 
 class PostsOne extends Component {
   componentWillMount() {
-    this.props.post;
-  }
-  
-  fetchPost = (id) => {
+    let { id } = this.props.match.params;
+
     fetch(`/api/posts/${id}`)
       .then(res => res.json())
       .then(json => this.props.loadOnePost(json));
-  }
-  
-  componentDidMount() {
-    this.fetchPost();
   }
 
   render() {
@@ -29,7 +23,7 @@ class PostsOne extends Component {
     );
   }
 }
-  
+
 const mapStateToProps = state => ({
   onePost: getLoadOnePost(state),
 });
