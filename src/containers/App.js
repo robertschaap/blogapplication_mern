@@ -12,7 +12,7 @@ class App extends Component {
         <Layout>
           <Route exact path="/" component={Home}  />
           <Route exact path="/posts" component={PostsAll}  />
-          <Route path="/posts/:id" component={PostsOne}  />
+          <Route exact path="/posts/:category(\D+)" component={PostsAll}  />
         </Layout>
       </BrowserRouter>
     );

@@ -8,7 +8,9 @@ const initialPostState = {
   comments: []
 };
 
-const initialPostsState =  [];
+const initialPostsState =  [
+  {},
+];
 
 const LOAD_ONE_POST = "LOAD_ONE_POST";
 
@@ -27,7 +29,7 @@ export const posts = (state = initialPostsState, action) => {
   switch (action.type) {
   case LOAD_POSTS:
     return action.payload;
-  default: 
+  default:
     return state;
   }
 };
