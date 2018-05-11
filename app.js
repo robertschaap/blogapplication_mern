@@ -29,6 +29,8 @@ app.get("/api/posts/:category(\\D+)" , (req, res) => {
 
   res.json(posts);
 });
+
+app.get("/api/posts/:id(\\d+)" , (req, res) => {
   const post = {
     post: {
       postAuthor: {
@@ -43,6 +45,6 @@ app.get("/api/posts/:category(\\D+)" , (req, res) => {
     },
     comments: []
   };
-  
+
   res.json(post);
 });

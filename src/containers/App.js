@@ -12,6 +12,7 @@ class App extends Component {
         <Layout>
           <Route exact path="/" component={Home}  />
           <Route exact path="/posts" component={PostsAll}  />
+          <Route exact path="/posts/:id(\d+)" component={PostsOne}  />
           <Route exact path="/posts/:category(\D+)" component={PostsAll}  />
         </Layout>
       </BrowserRouter>
