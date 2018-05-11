@@ -7,10 +7,11 @@ class Home extends Component {
   componentWillMount() {
     this.props.posts;
   }
+
   componentDidMount() {
     this.fetchPost();
   }
-  
+
   fetchPost = () => {
     fetch("/api/posts/")
       .then(res => res.json())
