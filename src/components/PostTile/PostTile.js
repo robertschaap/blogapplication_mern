@@ -3,15 +3,15 @@ import { Link } from "react-router-dom";
 import styles from "./PostTile.scss";
 import cx from "classnames";
 
-const PostTile = ({ large, small, id, title, author }) => {
+const PostTile = ({ large, medium, id, title, author }) => {
 
-  let hasImage = (large || small);
+  let hasImage = (large || medium);
 
   return (
-    <article 
+    <article
       className={cx(styles.component, {
         [styles.large]: large,
-        [styles.small]: small,
+        [styles.medium]: medium,
         [styles.textOnly]: !hasImage
       })}>
       <Link to={`/posts/${id}`}>

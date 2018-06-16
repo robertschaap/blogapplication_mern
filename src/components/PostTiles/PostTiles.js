@@ -5,35 +5,19 @@ import PostTile from "../PostTile";
 const PostTiles = ({ homepage, posts }) => {
 
   let tiles = posts.map((post, index) => {
-    if (homepage && index <= 1) {
-      return (
+
+    let large = homepage && index <= 1;
+    let medium = homepage && index >= 2 && index <= 3;
+
+    return (
       <PostTile
-        large
+        large={large}
+        medium={medium}
         key={post.id}
         id={post.id}
         title={post.title}
         author={post.author} />
-      );
-
-    } else if (homepage && index <= 3) {
-      return (
-        <PostTile
-          small
-          key={post.id}
-          id={post.id}
-          title={post.title}
-          author={post.author} />
-      );
-
-    } else {
-      return (
-        <PostTile 
-          key={post.id}
-          id={post.id}
-          title={post.title}
-          author={post.author} />
-      );
-    }
+    );
   });
 
   return (

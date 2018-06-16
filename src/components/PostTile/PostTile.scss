@@ -27,7 +27,7 @@
   grid-column: auto / span 6;
 }
 
-.small {
+.medium {
   grid-column: auto / span 6;
 
   .image {
@@ -40,7 +40,7 @@
 
 
 @media (max-width: 600px) {
-  .large, .small {
+  .large, .medium {
     grid-column: auto / span 12;
   }
 }

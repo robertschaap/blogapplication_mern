@@ -1,4 +1,4 @@
-const Users = require("./models/users");
+const Users = require("./users");
 
 module.exports = function Populate() {
   console.log("populating database");
