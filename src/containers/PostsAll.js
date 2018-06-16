@@ -17,7 +17,8 @@ class PostsAll extends Component {
     let { category } = this.props.match.params;
 
     if (category) {
-      return category[0].toUpperCase()+category.slice(1);
+      let firstCharacter = /^[a-z]/;
+      return category.replace(firstCharacter, c => c.toUpperCase());
     }
 
     return "All Posts";
