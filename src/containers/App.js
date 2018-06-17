@@ -1,19 +1,28 @@
 import React, { Component } from "react";
-import { BrowserRouter, Route } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+
+import Layout from "./Layout";
 import Home from "./Home";
 import PostsAll from "./PostsAll";
 import PostsOne from "./PostsOne";
-import Layout from "./Layout";
+import PostsNew from "./PostsNew";
+import UsersNew from "./UsersNew";
 
 class App extends Component {
   render() {
     return (
       <BrowserRouter>
         <Layout>
-          <Route exact path="/" component={Home}  />
-          <Route exact path="/posts" component={PostsAll}  />
-          <Route exact path="/posts/:id(\d+)" component={PostsOne}  />
-          <Route exact path="/posts/:category(\D+)" component={PostsAll}  />
+          <Switch>
+            <Route exact path="/" component={Home}  />
+
+            <Route exact path="/posts" component={PostsAll}  />
+            <Route path="/posts/new" component={PostsNew}  />
+            <Route path="/posts/:id(\d+)" component={PostsOne}  />
+            <Route path="/posts/:category(\D+)" component={PostsAll}  />
+
+            <Route exact path="/users" component={UsersNew}  />
+          </Switch>
         </Layout>
       </BrowserRouter>
     );
