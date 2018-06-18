@@ -1,12 +1,13 @@
 import React from "react";
 import styles from "./Login.scss";
+import { Link } from "react-router-dom";
 
 const Login = () => (
   <div className={styles.component}>
-    <a href="#">+</a>
-    <a href="#">Log Out</a>
-    <a href="#">Sign In</a>
-    <a href="#">Sign Up</a>
+    <Link to="/posts/new/">+</Link>
+    <Link to="/users/logout/">Log Out</Link>
+    <Link to="/users/login/">Sign In</Link>
+    <Link to="/users/new/">Sign Up</Link>
   </div>
 );
 
