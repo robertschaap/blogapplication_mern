@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import SignupForm from "../components/SignupForm";
 
-class PostsNew extends Component {
+class UsersNew extends Component {
   render() {
     return (
       <main>
@@ -11,4 +11,4 @@ class PostsNew extends Component {
   }
 }
 
-export default PostsNew;
+export default UsersNew;

@@ -21,7 +21,7 @@ class App extends Component {
             <Route path="/posts/:id(\d+)" component={PostsOne}  />
             <Route path="/posts/:category(\D+)" component={PostsAll}  />
 
-            <Route exact path="/users" component={UsersNew}  />
+            <Route exact path="/users/new" component={UsersNew}  />
           </Switch>
         </Layout>
       </BrowserRouter>
