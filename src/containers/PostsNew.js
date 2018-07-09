@@ -3,8 +3,10 @@ import PostForm from "../components/PostForm";
 
 class PostsNew extends Component {
   state = {
-    title: "",
-    body: "",
+    formData: {
+      title: "",
+      body: "",
+    },
   }
 
   handleChange = (event) => {
@@ -12,13 +14,26 @@ class PostsNew extends Component {
     const value = event.target.value;
 
     this.setState({
-      [name]: value
+      formData: {
+        ...this.state.formData,
+        [name]: value
+      }
     });
   }
 
   handleSubmit = (event) => {
     event.preventDefault();
-    console.log(event);
+
+    fetch("/api/posts/new", {
+      method: "post",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(this.state.formData)
+    })
+    .then(res => {
+      console.log(res);
+    });
   }
 
   render() {
