@@ -46,4 +46,9 @@ router.get("/:id(\\d+)" , (req, res) => {
   res.json(post);
 });
 
+router.post("/new", (req, res) => {
+  console.log(req.body);
+  res.send("blaat");
+});
+
 module.exports = router;
