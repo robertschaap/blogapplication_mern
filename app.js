@@ -2,6 +2,10 @@ const express = require("express");
 const app = express();
 const myport = process.env.PORT || 3000;
 const dbport = process.env.MONGOPORT || 27017;
+const bodyParser = require("body-parser");
+
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 app.listen(myport, () => console.log(`Now listening on port ${myport}`));
 
