@@ -7,7 +7,8 @@ const Schema = mongoose.Schema;
 const PostSchema = Schema({
   title: String,
   body: String,
-  category: String
+  category: String,
+  userId: String,
 }, {
   timestamps: true
 });
