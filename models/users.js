@@ -25,7 +25,10 @@ UserSchema.statics.new = (user) => {
     password: user.password
   });
 
-  record.save(err => err ? err : console.log("done"));
+  return record.save().then(result => {
+    console.log("created new user");
+    return result;
+  });
 };
 
 const Users = mongoose.model("User", UserSchema);
