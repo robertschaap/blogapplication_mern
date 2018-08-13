@@ -1,5 +1,9 @@
-
 const mongoose = require("mongoose");
+
+const Comments = require("./comments");
+const Posts = require("./posts");
+const Users = require("./users");
+const Populate = require("./populate");
 
 function run(dbPort, cliInput) {
   initialiseDB(dbPort);
@@ -35,11 +39,6 @@ function populateDB() {
   Populate();
   process.exit();
 }
-
-const Comments = require("./comments");
-const Posts = require("./posts");
-const Users = require("./users");
-const Populate = require("./populate");
 
 exports.Comment = Comments;
 exports.Posts = Posts;
