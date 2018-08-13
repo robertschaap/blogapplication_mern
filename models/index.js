@@ -2,6 +2,8 @@
 const mongoose = require("mongoose");
 
 function run(dbPort, cliInput) {
+  initialiseDB(dbPort);
+
   switch (cliInput) {
   case "populateDB":
     populateDB();
@@ -12,7 +14,6 @@ function run(dbPort, cliInput) {
     break;
 
   default:
-    initialiseDB(dbPort);
     break;
   }
 }
@@ -24,9 +25,10 @@ function initialiseDB(dbPort) {
 }
 
 function dropDB() {
-  console.log("dropping database");
-  mongoose.connection.dropDatabase();
-  process.exit();
+  mongoose.connection.dropDatabase().then(err => {
+    err ? console.log(err) : console.log("dropped database");
+    process.exit();
+  });
 }
 
 function populateDB() {
