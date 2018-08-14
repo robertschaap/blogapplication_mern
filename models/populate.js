@@ -1,5 +1,6 @@
 const Users = require("./users");
 const Posts = require("./posts");
+const Comments = require("./comments");
 
 module.exports = function Populate() {
   console.log("populating database");
@@ -20,6 +21,16 @@ module.exports = function Populate() {
       body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque a est auctor dolor tincidunt bibendum eget a arcu. Mauris pellentesque vitae ligula hendrerit efficitur. Maecenas eget eleifend lorem, a ultricies ante. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aliquam quis est metus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam consequat dignissim nunc. Curabitur blandit quam nulla, quis fermentum metus pulvinar sit amet.",
       category: "Design",
       userId: user._id
+    }).then(post => {
+      console.log("post populated:", post._id);
+
+      Comments.new({
+        body: "Great post, you really get the subject matter",
+        userId: post.userId,
+        postId: post._id,
+      }).then(comment => {
+        console.log("comment populated:", comment._id);
+      });
     });
 
     Posts.new({
@@ -27,6 +38,8 @@ module.exports = function Populate() {
       body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque a est auctor dolor tincidunt bibendum eget a arcu. Mauris pellentesque vitae ligula hendrerit efficitur. Maecenas eget eleifend lorem, a ultricies ante. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aliquam quis est metus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam consequat dignissim nunc. Curabitur blandit quam nulla, quis fermentum metus pulvinar sit amet.",
       category: "Technology",
       userId: user._id
+    }).then(post => {
+      console.log("post populated:", post._id);
     });
 
     Posts.new({
@@ -34,6 +47,16 @@ module.exports = function Populate() {
       body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque a est auctor dolor tincidunt bibendum eget a arcu. Mauris pellentesque vitae ligula hendrerit efficitur. Maecenas eget eleifend lorem, a ultricies ante. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aliquam quis est metus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam consequat dignissim nunc. Curabitur blandit quam nulla, quis fermentum metus pulvinar sit amet.",
       category: "Design",
       userId: user._id
+    }).then(post => {
+      console.log("post populated:", post._id);
+
+      Comments.new({
+        body: "Great post, you really get the subject matter",
+        userId: post.userId,
+        postId: post._id,
+      }).then(comment => {
+        console.log("comment populated:", comment._id);
+      });
     });
 
     Posts.new({
@@ -41,6 +64,8 @@ module.exports = function Populate() {
       body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque a est auctor dolor tincidunt bibendum eget a arcu. Mauris pellentesque vitae ligula hendrerit efficitur. Maecenas eget eleifend lorem, a ultricies ante. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aliquam quis est metus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam consequat dignissim nunc. Curabitur blandit quam nulla, quis fermentum metus pulvinar sit amet.",
       category: "Entrepreneur",
       userId: user._id
+    }).then(post => {
+      console.log("post populated:", post._id);
     });
   });
 };
