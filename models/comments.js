@@ -18,7 +18,10 @@ CommentSchema.statics.new = (comment) => {
     postId: comment.postId
   });
 
-  record.save(err => err ? err : console.log("done"));
+  return record.save().then(result => {
+    console.log("created new comment");
+    return result;
+  });
 };
 
 const Comments = mongoose.model("Comment", CommentSchema);
