@@ -32,7 +32,10 @@ PostSchema.statics.new = (post) => {
     userId: post.userId
   });
 
-  record.save(err => err ? err : console.log("done"));
+  return record.save().then(result => {
+    console.log("created new post");
+    return result;
+  });
 };
 
 const Posts = mongoose.model("Post", PostSchema);
