@@ -1,6 +1,3 @@
-// title, body, category
-// allPosts, onePost, createPost
-
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 

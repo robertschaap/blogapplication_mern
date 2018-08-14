@@ -1,6 +1,3 @@
-// firstName, lastName, email, userName, bio, password
-// createUser, loginUser, profileUser
-
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
