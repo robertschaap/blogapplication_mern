@@ -2,12 +2,6 @@ const express = require("express");
 const router = express.Router();
 const db = require("../models");
 
-router.get("/" , (req, res) => {
-  db.Posts.allPosts().then(posts => {
-    res.json(posts);
-  });
-});
-
 router.get("/:category(\\D+)" , (req, res) => {
   const posts =  [
     { id: 1, title: "Title", author: "Author" },
@@ -38,6 +32,12 @@ router.get("/:id(\\d+)" , (req, res) => {
   };
 
   res.json(post);
+});
+
+router.get("/" , (req, res) => {
+  db.Posts.allPosts().then(posts => {
+    res.json(posts);
+  });
 });
 
 router.post("/new", (req, res) => {
