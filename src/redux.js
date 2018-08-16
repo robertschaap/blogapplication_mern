@@ -8,10 +8,6 @@ const initialPostState = {
   comments: []
 };
 
-const initialPostsState =  [
-  {},
-];
-
 const LOAD_ONE_POST = "LOAD_ONE_POST";
 
 const LOAD_POSTS = "LOAD_POSTS";
@@ -25,7 +21,7 @@ export const onePost = (state = initialPostState, action) => {
   }
 };
 
-export const posts = (state = initialPostsState, action) => {
+export const posts = (state = [], action) => {
   switch (action.type) {
   case LOAD_POSTS:
     return action.payload;
