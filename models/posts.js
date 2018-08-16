@@ -11,8 +11,8 @@ const PostSchema = Schema({
 });
 
 // allPosts all posts with data of who posted it
-PostSchema.statics.allPosts = () => {
-  return Posts.find();
+PostSchema.statics.allPosts = (category) => {
+  return Posts.find(category ? { category } : {});
 };
 
 // onePost one post with user data and comments
