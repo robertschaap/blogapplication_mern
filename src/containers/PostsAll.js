@@ -8,7 +8,7 @@ class PostsAll extends Component {
   componentDidMount() {
     let { category } = this.props.match.params;
 
-    fetch(`/api/posts/${category}`)
+    fetch(`/api/posts/${category ? category : ""}`)
       .then(res => res.json())
       .then(json => this.props.loadPosts(json));
   }
