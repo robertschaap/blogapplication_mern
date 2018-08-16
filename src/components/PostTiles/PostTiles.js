@@ -13,8 +13,8 @@ const PostTiles = ({ homepage, posts }) => {
       <PostTile
         large={large}
         medium={medium}
-        key={post.id}
-        id={post.id}
+        key={post._id}
+        id={post._id}
         title={post.title}
         author={post.author} />
     );
