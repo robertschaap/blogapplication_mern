@@ -3,16 +3,12 @@ const router = express.Router();
 const db = require("../models");
 
 router.get("/:category(\\D+)" , (req, res) => {
-  const posts =  [
-    { id: 1, title: "Title", author: "Author" },
-    { id: 2, title: "Title", author: "Author" },
-    { id: 3, title: "Title", author: "Author" },
-    { id: 4, title: "Title", author: "Author" },
-    { id: 5, title: "Title", author: "Author" },
-    { id: 6, title: "Title", author: "Author" }
-  ];
+  // TODO matches possible categories ? query db : next
+  const { category } = req.params;
 
-  res.json(posts);
+  db.Posts.allPosts(category).then(posts => {
+    res.json(posts);
+  });
 });
 
 router.get("/:id(\\d+)" , (req, res) => {
