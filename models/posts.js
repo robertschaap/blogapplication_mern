@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
+const Users = require("./users");
 
 const PostSchema = Schema({
   title: String,
@@ -12,7 +13,22 @@ const PostSchema = Schema({
 
 // allPosts all posts with data of who posted it
 PostSchema.statics.allPosts = (category) => {
-  return Posts.find(category ? { category } : {});
+
+  const mapUsersToObject = array => array.reduce((accumulator, user) => {
+    accumulator[user._id] = `${user.firstName} ${user.lastName}`;
+    return accumulator;
+  }, {});
+
+  const mapUsersToPosts = ([posts, users]) => (
+    posts.map(post => ({
+      ...post._doc, author: users[post.userId]
+    }))
+  );
+
+  return Promise.all([
+    Posts.find(category ? { category } : {}).select("title userId"),
+    Users.find().select("_id firstName lastName").then(mapUsersToObject)
+  ]).then(mapUsersToPosts);
 };
 
 // onePost one post with user data and comments
