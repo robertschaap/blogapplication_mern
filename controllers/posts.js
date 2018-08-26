@@ -12,22 +12,11 @@ router.get("/:category(\\D+)" , (req, res) => {
 });
 
 router.get("/:id([0-9a-fA-F]{24})" , (req, res) => {
-  const post = {
-    post: {
-      postAuthor: {
-        firstName: "Robert",
-        lastName: "Schaap",
-        bio: "Lalala"
-      },
-      postBody: {
-        title: "A Post",
-        body: "Lorum ipsum dolor sit amet"
-      }
-    },
-    comments: []
-  };
+  const { id } = req.params;
 
-  res.json(post);
+  db.Posts.onePost(id).then(post => {
+    res.json(post);
+  });
 });
 
 router.get("/" , (req, res) => {

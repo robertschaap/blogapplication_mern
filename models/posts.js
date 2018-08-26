@@ -1,5 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
+
+const Comments = require("./comments");
 const Users = require("./users");
 
 const PostSchema = Schema({
@@ -32,8 +34,33 @@ PostSchema.statics.allPosts = (category) => {
 };
 
 // onePost one post with user data and comments
-PostSchema.statics.onePost = () => {
-  Posts.find();
+PostSchema.statics.onePost = (id) => {
+  const mapUsersToObject = array => array.reduce((accumulator, user) => {
+    accumulator[user._id] = user;
+    return accumulator;
+  }, {});
+
+  const mapCommentsToPost = ([comments, users]) => (
+    comments.map(comment => ({
+      ...comment._doc, author: users[comment.userId]
+    }))
+  );
+
+  const mapCommentsAndUsersToPosts = ([post, users, comments]) => ({
+    post: {
+      postAuthor: users[post.userId],
+      postBody: {
+        ...post._doc
+      }
+    },
+    comments: mapCommentsToPost([comments, users])
+  });
+
+  return Promise.all([
+    Posts.findOne({ _id: id }),
+    Users.find().select("_id firstName lastName bio").then(mapUsersToObject),
+    Comments.find({ postId: id })
+  ]).then(mapCommentsAndUsersToPosts);
 };
 
 // createPost
