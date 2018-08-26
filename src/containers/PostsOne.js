@@ -16,6 +16,10 @@ class PostsOne extends Component {
   render() {
     const { post, comments } = this.props.onePost;
 
+    if (!post || !comments) {
+      return null;
+    }
+
     return (
       <main>
         <Post post={post} comments={comments} />
