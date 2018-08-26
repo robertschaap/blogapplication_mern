@@ -18,7 +18,7 @@ class App extends Component {
 
             <Route exact path="/posts" component={PostsAll}  />
             <Route path="/posts/new" component={PostsNew}  />
-            <Route path="/posts/:id(\d+)" component={PostsOne}  />
+            <Route path="/posts/:id([0-9a-fA-F]{24})" component={PostsOne}  />
             <Route path="/posts/:category(\D+)" component={PostsAll}  />
 
             <Route exact path="/users/new" component={UsersNew}  />

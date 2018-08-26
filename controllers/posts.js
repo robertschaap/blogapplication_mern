@@ -11,7 +11,7 @@ router.get("/:category(\\D+)" , (req, res) => {
   });
 });
 
-router.get("/:id(\\d+)" , (req, res) => {
+router.get("/:id([0-9a-fA-F]{24})" , (req, res) => {
   const post = {
     post: {
       postAuthor: {
