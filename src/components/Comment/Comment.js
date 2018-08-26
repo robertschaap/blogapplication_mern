@@ -3,7 +3,7 @@ import styles from "./Comment.scss";
 
 const Comment = ({ comment }) => {
 
-  const { user, body } = comment;
+  const { author, body } = comment;
 
   return (
     <div className={styles.component}>
@@ -12,7 +12,7 @@ const Comment = ({ comment }) => {
       </div>
       <div className={styles.bottom}>
         <div>
-          <p className={styles.author}>{user.firstName} {user.lastName}</p>
+          <p className={styles.author}>{author.firstName} {author.lastName}</p>
           <p>{body}</p>
         </div>
       </div>
