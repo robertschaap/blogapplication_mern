@@ -3,7 +3,6 @@ const router = express.Router();
 const db = require("../models");
 
 router.get("/:category(\\D+)" , (req, res) => {
-  // TODO matches possible categories ? query db : next
   const { category } = req.params;
 
   db.Posts.allPosts(category).then(posts => {
