@@ -19,7 +19,7 @@ module.exports = function Populate() {
     Posts.new({
       title: "Why CSS is not your worst nightmare",
       body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque a est auctor dolor tincidunt bibendum eget a arcu. Mauris pellentesque vitae ligula hendrerit efficitur. Maecenas eget eleifend lorem, a ultricies ante. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aliquam quis est metus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam consequat dignissim nunc. Curabitur blandit quam nulla, quis fermentum metus pulvinar sit amet.",
-      category: "Design",
+      category: "design",
       userId: user._id
     }).then(post => {
       console.log("post populated:", post._id);
@@ -36,7 +36,7 @@ module.exports = function Populate() {
     Posts.new({
       title: "All about CSS Grid",
       body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque a est auctor dolor tincidunt bibendum eget a arcu. Mauris pellentesque vitae ligula hendrerit efficitur. Maecenas eget eleifend lorem, a ultricies ante. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aliquam quis est metus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam consequat dignissim nunc. Curabitur blandit quam nulla, quis fermentum metus pulvinar sit amet.",
-      category: "Technology",
+      category: "technology",
       userId: user._id
     }).then(post => {
       console.log("post populated:", post._id);
@@ -45,7 +45,7 @@ module.exports = function Populate() {
     Posts.new({
       title: "The strange property called Sticky",
       body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque a est auctor dolor tincidunt bibendum eget a arcu. Mauris pellentesque vitae ligula hendrerit efficitur. Maecenas eget eleifend lorem, a ultricies ante. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aliquam quis est metus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam consequat dignissim nunc. Curabitur blandit quam nulla, quis fermentum metus pulvinar sit amet.",
-      category: "Design",
+      category: "design",
       userId: user._id
     }).then(post => {
       console.log("post populated:", post._id);
@@ -62,7 +62,7 @@ module.exports = function Populate() {
     Posts.new({
       title: "Align Middle is missing and it's a problem",
       body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque a est auctor dolor tincidunt bibendum eget a arcu. Mauris pellentesque vitae ligula hendrerit efficitur. Maecenas eget eleifend lorem, a ultricies ante. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aliquam quis est metus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam consequat dignissim nunc. Curabitur blandit quam nulla, quis fermentum metus pulvinar sit amet.",
-      category: "Entrepreneur",
+      category: "entrepreneur",
       userId: user._id
     }).then(post => {
       console.log("post populated:", post._id);
