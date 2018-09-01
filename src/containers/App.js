@@ -7,6 +7,7 @@ import PostsAll from "./PostsAll";
 import PostsOne from "./PostsOne";
 import PostsNew from "./PostsNew";
 import UsersNew from "./UsersNew";
+import ProtectedRoute from "./ProtectedRoute";
 
 class App extends Component {
   render() {
@@ -17,7 +18,7 @@ class App extends Component {
             <Route exact path="/" component={Home}  />
 
             <Route exact path="/posts" component={PostsAll}  />
-            <Route path="/posts/new" component={PostsNew}  />
+            <ProtectedRoute path="/posts/new" component={PostsNew}  />
             <Route path="/posts/:id([0-9a-fA-F]{24})" component={PostsOne}  />
             <Route path="/posts/:category(\D+)" component={PostsAll}  />
 
