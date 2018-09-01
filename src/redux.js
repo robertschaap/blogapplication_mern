@@ -9,8 +9,8 @@ const initialPostState = {
 };
 
 const LOAD_ONE_POST = "LOAD_ONE_POST";
-
 const LOAD_POSTS = "LOAD_POSTS";
+const SET_AUTH = "SET_AUTH";
 
 export const onePost = (state = initialPostState, action) => {
   switch (action.type) {
@@ -30,9 +30,17 @@ export const posts = (state = [], action) => {
   }
 };
 
+export const auth = (state = true, action) => {
+  switch (action.type) {
+  default:
+    return state;
+  }
+};
+
 export const reducers = combineReducers({
   onePost,
-  posts
+  posts,
+  auth,
 });
 
 // Actions
@@ -46,6 +54,11 @@ export const loadPosts = (payload) => ({
   payload
 });
 
+export const setAuth = (payload) => ({
+  type: SET_AUTH,
+  payload
+});
+
 // Store
 export const store = createStore(
   reducers,
@@ -55,3 +68,4 @@ export const store = createStore(
 // Selector
 export const getLoadOnePost = state => state.onePost;
 export const getLoadPosts = state => state.posts;
+export const getAuth = state => state.auth;
