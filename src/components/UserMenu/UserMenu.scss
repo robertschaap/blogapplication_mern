@@ -1,0 +1,20 @@
+.component {
+  float: right;
+  margin-top: 1.3rem;
+
+  a {
+    border: 1px solid #666;
+    border-radius: 5px;
+    margin-left: 5px;
+    transition: 0.3s;
+    padding: 0.3rem 0.5rem;
+    text-decoration: none;
+    color: #666;
+
+    &:hover {
+      text-decoration: none;
+      color: white;
+      background-color: #666;
+    }
+  }
+}
