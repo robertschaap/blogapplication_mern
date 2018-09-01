@@ -1,9 +1,10 @@
 import React from "react";
 import styles from "./Header.scss";
 import LoginMenu from "../LoginMenu";
+import UserMenu from "../UserMenu";
 import Navigation from "../Navigation";
 
-const Header = () => (
+const Header = ({ loggedIn }) => (
   <header
     className={styles.component}
     role="heading">
@@ -12,7 +13,7 @@ const Header = () => (
       role="navigation">
       <h1>.Dotted Pixels</h1>
 
-      <Login />
+      {loggedIn ? <UserMenu /> : <LoginMenu /> }
     </nav>
 
     <Navigation />
