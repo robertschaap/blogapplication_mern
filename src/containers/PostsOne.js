@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { loadOnePost, getLoadOnePost } from "../redux";
+import { loadOnePost, getLoadOnePost, getAuth } from "../redux";
 
 import Post from "../components/Post";
 
@@ -15,6 +15,7 @@ class PostsOne extends Component {
 
   render() {
     const { post, comments } = this.props.onePost;
+    const { loggedIn } = this.props;
 
     if (!post || !comments) {
       return null;
@@ -22,7 +23,7 @@ class PostsOne extends Component {
 
     return (
       <main>
-        <Post post={post} comments={comments} />
+        <Post post={post} comments={comments} loggedIn={loggedIn} />
       </main>
     );
   }
@@ -30,6 +31,7 @@ class PostsOne extends Component {
 
 const mapStateToProps = state => ({
   onePost: getLoadOnePost(state),
+  loggedIn: getAuth(state),
 });
 
 const mapDispatchToProps = {
