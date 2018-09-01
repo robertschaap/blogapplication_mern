@@ -1,8 +1,8 @@
 import React from "react";
-import styles from "./Login.scss";
+import styles from "./LoginMenu.scss";
 import { Link } from "react-router-dom";
 
-const Login = () => (
+const LoginMenu = () => (
   <div className={styles.component}>
     <Link to="/posts/new/">+</Link>
     <Link to="/users/logout/">Log Out</Link>
@@ -11,4 +11,4 @@ const Login = () => (
   </div>
 );
 
-export default Login;
+export default LoginMenu;

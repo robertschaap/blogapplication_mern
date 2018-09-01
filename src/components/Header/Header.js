@@ -1,17 +1,17 @@
 import React from "react";
 import styles from "./Header.scss";
-import Login from "../Login";
+import LoginMenu from "../LoginMenu";
 import Navigation from "../Navigation";
 
 const Header = () => (
-  <header 
+  <header
     className={styles.component}
     role="heading">
     <nav
       className={styles.main}
       role="navigation">
       <h1>.Dotted Pixels</h1>
-      
+
       <Login />
     </nav>
 
