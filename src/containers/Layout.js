@@ -2,12 +2,22 @@ import React from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 
-const Layout = ({ children }) => (
+import { withRouter } from "react-router-dom";
+import { connect } from "react-redux";
+import { getAuth } from "../redux";
+
+const Layout = ({ children, loggedIn }) => (
   <div>
-    <Header />
+    <Header loggedIn={loggedIn} />
       {children}
     <Footer />
   </div>
 );
 
-export default Layout;
+const mapStateToProps = state => ({
+  loggedIn: getAuth(state)
+});
+
+export default withRouter(connect(
+  mapStateToProps
+)(Layout));
