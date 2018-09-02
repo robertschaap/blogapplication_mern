@@ -23,7 +23,7 @@ function run(dbPort, cliInput) {
 }
 
 function initialiseDB(dbPort) {
-  mongoose.connect(`mongodb://localhost:${dbPort}/blogapplication`);
+  mongoose.connect(`mongodb://localhost:${dbPort}/blogapplication`, { useNewUrlParser: true });
   mongoose.connection.on("error", console.error.bind(console), "MDB Connect Err");
   mongoose.Promise = global.Promise;
 }
