@@ -3,7 +3,7 @@ import styles from "./CommentForm.scss";
 
 const CommentForm = () => (
   <section className={styles.component}>
-    <h3>Add CommentForm</h3>
+    <h3>Add Comment</h3>
     <form>
       <input type="text" name="comment" required />
       <button>Submit</button>
