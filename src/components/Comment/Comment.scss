@@ -4,14 +4,14 @@
   clear: both;
 }
 
-.top {
-  img {
-    width: 40px;
-    height: 40px;
-    border-radius: 50px;
-    float: left;
-  }
+.image {
+  width: 40px;
+  height: 40px;
+  border-radius: 50px;
+  float: left;
+  background-color: #eee;
 }
+
 .bottom {
   padding-left: 1rem;
   margin-bottom: 1rem;

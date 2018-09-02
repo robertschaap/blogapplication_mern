@@ -7,8 +7,8 @@ const Comment = ({ comment }) => {
 
   return (
     <div className={styles.component}>
-      <div className={styles.top}>
-        <img />
+      <div>
+        <img className={styles.image} />
       </div>
       <div className={styles.bottom}>
         <div>
