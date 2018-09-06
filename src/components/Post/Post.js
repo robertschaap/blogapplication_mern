@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import styles from "./Post.scss";
 import Comments from "../Comments";
-import CommentForm from "../CommentForm";
+import CommentFormContainer from "../../containers/CommentFormContainer";
 
 const Post = ({ post, comments, loggedIn }) => {
   const { postAuthor, postBody } = post;
@@ -26,7 +26,7 @@ const Post = ({ post, comments, loggedIn }) => {
           </article>
 
           <Comments comments={comments} />
-          {loggedIn && <CommentForm />}
+          {loggedIn && <CommentFormContainer />}
 
         </div>
       </section>
