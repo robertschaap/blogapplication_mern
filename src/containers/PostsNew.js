@@ -10,8 +10,7 @@ class PostsNew extends Component {
   }
 
   handleChange = (event) => {
-    const name = event.target.name;
-    const value = event.target.value;
+    const { name, value } = event.target;
 
     this.setState({
       formData: {
@@ -39,7 +38,10 @@ class PostsNew extends Component {
   render() {
     return (
       <main>
-        <PostForm value={this.state} onChange={this.handleChange} onSubmit={this.handleSubmit} />
+        <PostForm
+          value={this.state.formData}
+          onChange={this.handleChange}
+          onSubmit={this.handleSubmit} />
       </main>
     );
   }
