@@ -1,4 +1,7 @@
 import React, { Component } from "react";
+import { Redirect } from "react-router-dom";
+import { connect } from "react-redux";
+import { getAuth, setAuth } from "../redux";
 import LoginForm from "../components/LoginForm";
 
 class Login extends Component {
@@ -34,12 +37,19 @@ class Login extends Component {
       },
       body: JSON.stringify(this.state.formData)
     })
+    .then(res => res.json())
     .then(res => {
-      console.log(res);
+      if (res.token) {
+        this.props.setAuth(res.token);
+      }
     });
   }
 
   render() {
+    if (this.props.loggedIn) {
+      return <Redirect to="/" />;
+    }
+
     return (
       <main>
         <LoginForm
@@ -49,4 +59,15 @@ class Login extends Component {
   }
 }
 
-export default Login;
+const mapStateToProps = state => ({
+  loggedIn: getAuth(state),
+});
+
+const mapDispatchToProps = {
+  setAuth,
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Login);
