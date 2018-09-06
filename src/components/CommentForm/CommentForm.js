@@ -1,12 +1,16 @@
 import React from "react";
 import styles from "./CommentForm.scss";
 
-const CommentForm = () => (
+const CommentForm = ({ value, onChange, onSubmit }) => (
   <section className={styles.component}>
     <h3>Add Comment</h3>
-    <form>
-      <input type="text" name="comment" required />
-      <button>Submit</button>
+    <form onSubmit={onSubmit}>
+      <input
+        type="text"
+        name="comment"
+        value={value.comment}
+        onChange={onChange} required />
+      <button type="submit">Submit</button>
     </form>
   </section>
 );
