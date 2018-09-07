@@ -12,6 +12,7 @@ const LOAD_ONE_POST = "LOAD_ONE_POST";
 const LOAD_POSTS = "LOAD_POSTS";
 const SET_AUTHTOKEN = "SET_AUTHTOKEN";
 const CLEAR_AUTHTOKEN = "CLEAR_AUTHTOKEN";
+const SET_USER = "SET_USER";
 
 export const onePost = (state = initialPostState, action) => {
   switch (action.type) {
@@ -31,7 +32,7 @@ export const posts = (state = [], action) => {
   }
 };
 
-export const auth = (state = "", action) => {
+export const auth = (state = "token", action) => {
   switch (action.type) {
   case SET_AUTHTOKEN:
     return action.payload;
@@ -42,10 +43,20 @@ export const auth = (state = "", action) => {
   }
 };
 
+export const user = (state = {}, action) => {
+  switch (action.type) {
+  case SET_USER:
+    return action.payload;
+  default:
+    return state;
+  }
+};
+
 export const reducers = combineReducers({
   onePost,
   posts,
   auth,
+  user,
 });
 
 // Actions
@@ -68,6 +79,11 @@ export const clearAuth = () => ({
   type: CLEAR_AUTHTOKEN,
 });
 
+export const setUser = (payload) => ({
+  type: SET_USER,
+  payload
+});
+
 // Store
 export const store = createStore(
   reducers,
@@ -78,3 +94,4 @@ export const store = createStore(
 export const getLoadOnePost = state => state.onePost;
 export const getLoadPosts = state => state.posts;
 export const getAuth = state => state.auth;
+export const getUser = state => state.user;
