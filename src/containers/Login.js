@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
-import { getAuth, setAuth } from "../redux";
+import { getAuth, setAuth, setUser } from "../redux";
 import LoginForm from "../components/LoginForm";
 
 class Login extends Component {
@@ -66,6 +66,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = (dispatch) => ({
   onHandleSubmit: (login) => {
     dispatch(setAuth(login.token));
+    dispatch(setUser(login.user));
   }
 });
 
