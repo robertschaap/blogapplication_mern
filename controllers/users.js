@@ -15,9 +15,20 @@ router.post("/login", (req, res) => {
   db.Users.findOne({ userName })
     .then(user => {
       if (user && user.password === password) {
-        res.json({
-          token: jwt.sign({ id: user._id }, "thesecret", { expiresIn: 86400 })
-        });
+        const response = {
+          user: {
+            id: user._id,
+            firstName: user.firstName,
+            lastName: user.lastName,
+          },
+          token: jwt.sign(
+            { id: user._id },
+            "thesecret",
+            { expiresIn: 86400 }
+          )
+        };
+
+        res.json(response);
       } else {
         res.json("denied");
       }
