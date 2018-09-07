@@ -40,7 +40,7 @@ class Login extends Component {
     .then(res => res.json())
     .then(res => {
       if (res.token) {
-        this.props.setAuth(res.token);
+        this.props.onHandleSubmit(res);
       }
     });
   }
@@ -63,9 +63,11 @@ const mapStateToProps = state => ({
   loggedIn: getAuth(state),
 });
 
-const mapDispatchToProps = {
-  setAuth,
-};
+const mapDispatchToProps = (dispatch) => ({
+  onHandleSubmit: (login) => {
+    dispatch(setAuth(login.token));
+  }
+});
 
 export default connect(
   mapStateToProps,
