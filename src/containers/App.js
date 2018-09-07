@@ -8,6 +8,7 @@ import PostsOne from "./PostsOne";
 import PostsNew from "./PostsNew";
 import UsersNew from "./UsersNew";
 import Login from "./Login";
+import Logout from "./Logout";
 
 import ProtectedRoute from "./ProtectedRoute";
 
@@ -26,6 +27,7 @@ class App extends Component {
 
             <Route exact path="/users/new" component={UsersNew}  />
             <Route exact path="/users/login" component={Login}  />
+            <Route exact path="/users/logout" component={Logout}  />
           </Switch>
         </Layout>
       </BrowserRouter>
