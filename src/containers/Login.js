@@ -53,7 +53,9 @@ class Login extends Component {
     return (
       <main>
         <LoginForm
-          value={this.state.formData} onChange={this.handleChange} onSubmit={this.handleSubmit} />
+          value={this.state.formData}
+          onChange={this.handleChange}
+          onSubmit={this.handleSubmit} />
       </main>
     );
   }
