@@ -3,7 +3,7 @@ import styles from "./Post.scss";
 import Comments from "../Comments";
 import CommentFormContainer from "../../containers/CommentFormContainer";
 
-const Post = ({ post, comments, loggedIn }) => {
+const Post = ({ post, comments, loggedIn, loggedInUser }) => {
   const { postAuthor, postBody } = post;
 
   return (
@@ -26,7 +26,11 @@ const Post = ({ post, comments, loggedIn }) => {
           </article>
 
           <Comments comments={comments} />
-          {loggedIn && <CommentFormContainer />}
+          {loggedIn && (
+            <CommentFormContainer
+              postId={postBody._id}
+              user={loggedInUser.id} />
+          )}
 
         </div>
       </section>
