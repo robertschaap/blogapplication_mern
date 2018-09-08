@@ -21,12 +21,18 @@ class CommentFormContainer extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
 
+    const requestBody = {
+      comment: this.state.formData.comment,
+      userId: this.props.userId,
+      postId: this.props.postId,
+    };
+
     fetch("/api/comments/new", {
       method: "post",
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify(this.state.formData)
+      body: JSON.stringify(requestBody)
     })
     .then(res => {
       // TODO: handle reponse
