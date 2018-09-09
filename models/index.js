@@ -40,7 +40,7 @@ function populateDB() {
   process.exit();
 }
 
-exports.Comment = Comments;
+exports.Comments = Comments;
 exports.Posts = Posts;
 exports.Users = Users;
 exports.run = run;
