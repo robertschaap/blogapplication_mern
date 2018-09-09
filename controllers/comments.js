@@ -6,7 +6,7 @@ router.post("/new", (req, res) => {
   const comment = {
     body: req.body.comment,
     userId: req.body.userId,
-    postId: req.body.comment,
+    postId: req.body.postId,
   };
 
   db.Comments.new(comment).then(comment => {
