@@ -32,7 +32,7 @@ export const posts = (state = [], action) => {
   }
 };
 
-export const auth = (state = "token", action) => {
+export const auth = (state = "", action) => {
   switch (action.type) {
   case SET_AUTHTOKEN:
     return action.payload;
