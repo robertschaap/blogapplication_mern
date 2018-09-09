@@ -25,8 +25,16 @@ router.get("/" , (req, res) => {
 });
 
 router.post("/new", (req, res) => {
-  console.log(req.body);
-  res.send("blaat");
+  const post = {
+    title: req.body.title,
+    body: req.body.body,
+    category: req.body.category,
+    userId: req.body.userId,
+  };
+
+  db.Posts.new(post).then(post => {
+    res.json(post);
+  });
 });
 
 module.exports = router;

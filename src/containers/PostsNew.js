@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { getUser } from "../redux";
 import PostForm from "../components/PostForm";
 
 class PostsNew extends Component {
@@ -6,6 +8,7 @@ class PostsNew extends Component {
     formData: {
       title: "",
       body: "",
+      category: "technology"
     },
   }
 
@@ -23,14 +26,20 @@ class PostsNew extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
 
+    const requestBody = {
+      ...this.state.formData,
+      userId: this.props.loggedInUser.id
+    };
+
     fetch("/api/posts/new", {
       method: "post",
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify(this.state.formData)
+      body: JSON.stringify(requestBody)
     })
     .then(res => {
+      // TOOD: handle response/push redirect
       console.log(res);
     });
   }
@@ -47,4 +56,10 @@ class PostsNew extends Component {
   }
 }
 
-export default PostsNew;
+const mapStateToProps = state => ({
+  loggedInUser: getUser(state)
+});
+
+export default connect(
+  mapStateToProps
+)(PostsNew);
