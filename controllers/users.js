@@ -4,8 +4,11 @@ const router = express.Router();
 const db = require("../models");
 
 router.post("/new" , (req, res) => {
-  console.log(req.body);
-  res.json("done");
+  const user = req.body;
+
+  db.Users.new(user).then(user => {
+    res.json(user);
+  });
 });
 
 // TODO: proper API status codes and pw enc/decr
