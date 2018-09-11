@@ -8,7 +8,6 @@ const SignupForm = ({ value, onChange, onSubmit }) => {
     email,
     userName,
     bio,
-    avatar,
     password
   } = value;
 
@@ -49,14 +48,6 @@ const SignupForm = ({ value, onChange, onSubmit }) => {
         <textarea
           name="bio"
           value={bio}
-          onChange={onChange} />
-
-        <label>Avatar (JPEG only)</label>
-        <input
-          type="file"
-          accept=".jpg"
-          name="avatar"
-          value={avatar}
           onChange={onChange} />
 
         <label>Password (Minimum 8 Characters)</label>
