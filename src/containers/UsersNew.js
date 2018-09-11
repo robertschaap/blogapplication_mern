@@ -9,7 +9,6 @@ class UsersNew extends Component {
       email: "",
       userName: "",
       bio: "",
-      avatar: "",
       password: "",
     },
   }
