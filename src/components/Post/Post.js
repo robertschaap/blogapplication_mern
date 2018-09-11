@@ -6,9 +6,13 @@ import CommentFormContainer from "../../containers/CommentFormContainer";
 const Post = ({ post, comments, loggedIn, loggedInUser }) => {
   const { postAuthor, postBody } = post;
 
+  const random = Math.floor(Math.random()* 6) + 1;
+
   return (
     <Fragment>
-      <section className={styles.background} />
+      <section
+        className={styles.background}
+        style={{ backgroundImage: `url(/images/banners/${random}.jpg)` }} />
       <section className={styles.component}>
         <div>
           <article>
