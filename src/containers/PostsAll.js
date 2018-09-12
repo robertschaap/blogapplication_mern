@@ -11,6 +11,15 @@ class PostsAll extends Component {
     this.fetchCategory(category);
   }
 
+  componentDidUpdate(prevProps) {
+    let { category } = this.props.match.params;
+    let { category: prevCategory } = prevProps.match.params;
+
+    if (category != prevCategory) {
+      this.fetchCategory(category);
+    }
+  }
+
   fetchCategory(category) {
     fetch(`/api/posts/${category ? category : ""}`)
       .then(res => res.json())
