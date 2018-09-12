@@ -14,10 +14,9 @@ class UsersNew extends Component {
   }
 
   handleChange = (event) => {
-    const name = event.target.name;
-    const value = event.target.value;
+    const { name, value } = event.target;
 
-    this.setState=({
+    this.setState({
       formData: {
         ...this.state.formData,
         [name]: value
@@ -44,7 +43,7 @@ class UsersNew extends Component {
     return (
       <main>
         <SignupForm
-          value={this.state}
+          value={this.state.formData}
           onChange={this.handleChange}
           onSubmit={this.handleSubmit} />
       </main>
