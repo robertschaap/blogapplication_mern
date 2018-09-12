@@ -6,6 +6,7 @@ import cx from "classnames";
 const PostTile = ({ large, medium, id, title, author }) => {
 
   let hasImage = (large || medium);
+  const random = Math.floor(Math.random()* 6) + 1;
 
   return (
     <article
@@ -16,7 +17,9 @@ const PostTile = ({ large, medium, id, title, author }) => {
       })}>
       <Link to={`/posts/${id}`}>
         {hasImage && (
-          <div className={styles.image} />
+          <div
+            className={styles.image}
+            style={{ backgroundImage: `url(/images/banners/${random}.jpg)` }} />
         )}
         <div className={styles.text}>
           <h2>{title}</h2>
