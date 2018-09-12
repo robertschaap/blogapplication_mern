@@ -8,7 +8,8 @@ const SignupForm = ({ value, onChange, onSubmit }) => {
     email,
     userName,
     bio,
-    password
+    password,
+    passwordConfirm,
   } = value;
 
   return (
@@ -55,10 +56,13 @@ const SignupForm = ({ value, onChange, onSubmit }) => {
           type="password"
           name="password"
           value={password}
-          onChange={password} />
+          onChange={onChange} />
 
         <label>Confirm Password</label>
-        <input type="password" />
+        <input
+          type="password"
+          value={passwordConfirm}
+          onChange={onChange} />
         <button type="submit">Sign Up</button>
       </form>
     </section>
