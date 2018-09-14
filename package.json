@@ -31,16 +31,16 @@
     "html-webpack-plugin": "2.29.0",
     "jest": "20.0.4",
     "jsonwebtoken": "^8.3.0",
-    "mongoose": "^5.2.12",
+    "mongoose": "^5.2.14",
     "node-sass": "^4.9.3",
     "object-assign": "4.1.1",
     "postcss-flexbugs-fixes": "3.2.0",
     "postcss-loader": "2.0.8",
     "promise": "8.0.1",
     "raf": "3.4.0",
-    "react": "^16.4.2",
+    "react": "^16.5.1",
     "react-dev-utils": "^5.0.2",
-    "react-dom": "^16.4.2",
+    "react-dom": "^16.5.1",
     "react-helmet": "^5.2.0",
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.3.1",
@@ -60,7 +60,7 @@
     "test": "node scripts/test.js --env=jsdom",
     "server": "node app.js",
     "drop": "node app.js dropDB",
-    "populate": " node app.js populateDB"
+    "populate": "node app.js populateDB"
   },
   "proxy": "http://localhost:3000",
   "jest": {
