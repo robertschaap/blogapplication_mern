@@ -1,4 +1,4 @@
-import { createStore, combineReducers } from "redux";
+import { combineReducers } from "redux";
 
 const initialPostState = {
   post: {
@@ -83,12 +83,6 @@ export const setUser = (payload) => ({
   type: SET_USER,
   payload
 });
-
-// Store
-export const store = createStore(
-  reducers,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-);
 
 // Selector
 export const getLoadOnePost = state => state.onePost;
