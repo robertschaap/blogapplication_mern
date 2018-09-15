@@ -9,13 +9,7 @@ class Home extends Component {
   }
 
   componentDidMount() {
-    this.fetchPost();
-  }
-
-  fetchPost = () => {
-    fetch("/api/posts/")
-      .then(res => res.json())
-      .then(json => this.props.loadPosts(json));
+    this.props.loadPosts();
   }
 
   render() {

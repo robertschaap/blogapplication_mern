@@ -65,10 +65,15 @@ export const loadOnePost = (payload) => ({
   payload
 });
 
-export const loadPosts = (payload) => ({
-  type: LOAD_POSTS,
-  payload
-});
+export const loadPosts = async () => {
+  const response = await fetch("/api/posts/");
+  const json = await response.json();
+
+  return {
+    type: LOAD_POSTS,
+    payload: json
+  };
+};
 
 export const setAuth = (payload) => ({
   type: SET_AUTHTOKEN,
