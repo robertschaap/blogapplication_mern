@@ -8,7 +8,7 @@ class PostsAll extends Component {
   componentDidMount() {
     let { category } = this.props.match.params;
 
-    this.fetchCategory(category);
+    this.props.loadPosts(category);
   }
 
   componentDidUpdate(prevProps) {
@@ -16,14 +16,8 @@ class PostsAll extends Component {
     let { category: prevCategory } = prevProps.match.params;
 
     if (category != prevCategory) {
-      this.fetchCategory(category);
+      this.props.loadPosts(category);
     }
-  }
-
-  fetchCategory(category) {
-    fetch(`/api/posts/${category ? category : ""}`)
-      .then(res => res.json())
-      .then(json => this.props.loadPosts(json));
   }
 
   getCategory() {

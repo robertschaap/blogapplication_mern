@@ -65,8 +65,12 @@ export const loadOnePost = (payload) => ({
   payload
 });
 
-export const loadPosts = async () => {
-  const response = await fetch("/api/posts/");
+export const loadPosts = async (category) => {
+  const apiRoute = category
+    ? `/api/posts/${category ? category : ""}`
+    : "/api/posts/";
+
+  const response = await fetch(apiRoute);
   const json = await response.json();
 
   return {
