@@ -8,9 +8,7 @@ class PostsOne extends Component {
   componentWillMount() {
     let { id } = this.props.match.params;
 
-    fetch(`/api/posts/${id}`)
-      .then(res => res.json())
-      .then(json => this.props.loadOnePost(json));
+    this.props.loadOnePost(id);
   }
 
   render() {

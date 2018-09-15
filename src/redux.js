@@ -60,10 +60,15 @@ export const reducers = combineReducers({
 });
 
 // Actions
-export const loadOnePost = (payload) => ({
-  type: LOAD_ONE_POST,
-  payload
-});
+export const loadOnePost = async (id) => {
+  const response = await fetch(`/api/posts/${id}`);
+  const json = await response.json();
+
+  return {
+    type: LOAD_ONE_POST,
+    payload: json
+  };
+};
 
 export const loadPosts = async (category) => {
   const apiRoute = category
