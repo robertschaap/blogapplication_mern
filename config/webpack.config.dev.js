@@ -53,7 +53,7 @@ module.exports = {
             options: {
               formatter: eslintFormatter,
               eslintPath: require.resolve("eslint"),
-              
+
             },
             loader: require.resolve("eslint-loader"),
           },
@@ -85,6 +85,7 @@ module.exports = {
               use: [{
                 loader: "css-loader",
                 options: {
+                  importLoaders: 1,
                   modules: true,
                   localIdentName: "[name]-[local]-[hash:base64:5]"
                 }
@@ -111,7 +112,7 @@ module.exports = {
             test: /\.scss$/,
             use: ExtractTextPlugin.extract({
               fallback: "style-loader",
-              use: [{ 
+              use: [{
                 loader: "css-loader",
                 options: {
                   importLoaders: 1,
