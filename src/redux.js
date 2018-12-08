@@ -8,8 +8,14 @@ const initialPostState = {
   comments: []
 };
 
+const initialFormState = {
+  data: {},
+  status: ""
+};
+
 const LOAD_ONE_POST = "LOAD_ONE_POST";
 const LOAD_POSTS = "LOAD_POSTS";
+const SUBMIT_FORM_SUCCESS = "SUBMIT_FORM_SUCCESS";
 const SET_AUTHTOKEN = "SET_AUTHTOKEN";
 const CLEAR_AUTHTOKEN = "CLEAR_AUTHTOKEN";
 const SET_USER = "SET_USER";
@@ -27,6 +33,15 @@ export const posts = (state = [], action) => {
   switch (action.type) {
   case LOAD_POSTS:
     return action.payload;
+  default:
+    return state;
+  }
+};
+
+export const form = (state = initialFormState, action) => {
+  switch (action.type) {
+  case SUBMIT_FORM_SUCCESS:
+    return state;
   default:
     return state;
   }
@@ -55,6 +70,7 @@ export const user = (state = {}, action) => {
 export const reducers = combineReducers({
   onePost,
   posts,
+  form,
   auth,
   user,
 });
@@ -80,6 +96,24 @@ export const loadPosts = async (category) => {
 
   return {
     type: LOAD_POSTS,
+    payload: json
+  };
+};
+
+export const submitPost = async (formBody) => {
+  const body = {
+    method: "post",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(formBody)
+  };
+
+  const response = await fetch("/api/posts/new", body);
+  const json = await response.json();
+
+  return {
+    type: SUBMIT_FORM_SUCCESS,
     payload: json
   };
 };

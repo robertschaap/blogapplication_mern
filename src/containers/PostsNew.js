@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { getUser } from "../redux";
+import { getUser, submitPost } from "../redux";
 import PostForm from "../components/PostForm";
 
 class PostsNew extends Component {
@@ -31,17 +31,8 @@ class PostsNew extends Component {
       userId: this.props.loggedInUser.id
     };
 
-    fetch("/api/posts/new", {
-      method: "post",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(requestBody)
-    })
-    .then(res => {
-      // TOOD: handle response/push redirect
-      console.log(res);
-    });
+    this.props.submitPost(requestBody);
+
   }
 
   render() {
@@ -60,6 +51,11 @@ const mapStateToProps = state => ({
   loggedInUser: getUser(state)
 });
 
+const mapDispatchToProps = {
+  submitPost
+};
+
 export default connect(
-  mapStateToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(PostsNew);
