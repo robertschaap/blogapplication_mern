@@ -10,7 +10,7 @@ import UsersNew from "./UsersNew";
 import LoginContainer from "./LoginContainer";
 import LogoutContainer from "./LogoutContainer";
 
-import ProtectedRoute from "./ProtectedRoute";
+import ProtectedRouteContainer from "./ProtectedRouteContainer";
 
 class AppContainer extends Component {
   render() {
@@ -21,7 +21,7 @@ class AppContainer extends Component {
             <Route exact path="/" component={HomeContainer} />
 
             <Route exact path="/posts" component={PostsAllContainer} />
-            <ProtectedRoute path="/posts/new" component={PostsNewContainer} />
+            <ProtectedRouteContainer path="/posts/new" component={PostsNewContainer} />
             <Route path="/posts/:id([0-9a-fA-F]{24})" component={PostsOneContainer} />
             <Route path="/posts/:category(\D+)" component={PostsAllContainer} />
 

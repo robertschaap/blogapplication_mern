@@ -4,7 +4,7 @@ import { Route, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { getAuth } from "../redux";
 
-const ProtectedRoute = ({ loggedIn, ...props }) => (
+const ProtectedRouteContainer = ({ loggedIn, ...props }) => (
   loggedIn ? <Route {...props} /> : <Redirect to="/" />
 );
 
@@ -14,4 +14,4 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps
-)(ProtectedRoute);
+)(ProtectedRouteContainer);
