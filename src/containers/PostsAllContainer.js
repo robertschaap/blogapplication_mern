@@ -4,7 +4,7 @@ import { loadPosts, getLoadPosts } from "../redux";
 import CategoryHeader from "../components/CategoryHeader";
 import PostTiles from "../components/PostTiles";
 
-class PostsAll extends Component {
+class PostsAllContainer extends Component {
   componentDidMount() {
     let { category } = this.props.match.params;
 
@@ -53,4 +53,4 @@ const mapDispatchToProps = {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(PostsAll);
+)(PostsAllContainer);

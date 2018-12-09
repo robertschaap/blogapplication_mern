@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 import LayoutContainer from "./LayoutContainer";
 import HomeContainer from "./HomeContainer";
-import PostsAll from "./PostsAll";
+import PostsAllContainer from "./PostsAllContainer";
 import PostsOne from "./PostsOne";
 import PostsNew from "./PostsNew";
 import UsersNew from "./UsersNew";
@@ -20,10 +20,10 @@ class AppContainer extends Component {
           <Switch>
             <Route exact path="/" component={HomeContainer} />
 
-            <Route exact path="/posts" component={PostsAll} />
+            <Route exact path="/posts" component={PostsAllContainer} />
             <ProtectedRoute path="/posts/new" component={PostsNew} />
             <Route path="/posts/:id([0-9a-fA-F]{24})" component={PostsOne} />
-            <Route path="/posts/:category(\D+)" component={PostsAll} />
+            <Route path="/posts/:category(\D+)" component={PostsAllContainer} />
 
             <Route exact path="/users/new" component={UsersNew} />
             <Route exact path="/users/login" component={LoginContainer} />
