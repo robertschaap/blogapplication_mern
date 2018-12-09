@@ -12,7 +12,7 @@ import Logout from "./Logout";
 
 import ProtectedRoute from "./ProtectedRoute";
 
-class App extends Component {
+class AppContainer extends Component {
   render() {
     return (
       <BrowserRouter>
@@ -35,4 +35,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default AppContainer;

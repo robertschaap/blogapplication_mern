@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "./containers/App";
+import AppContainer from "./containers/AppContainer";
 import registerServiceWorker from "./registerServiceWorker";
 
 import { Provider } from "react-redux";
@@ -18,7 +18,7 @@ const store = createStore(
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <AppContainer />
   </Provider>,
   document.getElementById("root")
 );
