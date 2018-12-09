@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { getAuth, setAuth, setUser } from "../redux";
 import LoginForm from "../components/LoginForm";
 
-class Login extends Component {
+class LoginContainer extends Component {
   state = {
     formData: {
       userName: "",
@@ -75,4 +75,4 @@ const mapDispatchToProps = (dispatch) => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Login);
+)(LoginContainer);
