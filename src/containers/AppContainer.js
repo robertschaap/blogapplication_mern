@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
-import Layout from "./Layout";
+import LayoutContainer from "./LayoutContainer";
 import Home from "./Home";
 import PostsAll from "./PostsAll";
 import PostsOne from "./PostsOne";
@@ -16,7 +16,7 @@ class AppContainer extends Component {
   render() {
     return (
       <BrowserRouter>
-        <Layout>
+        <LayoutContainer>
           <Switch>
             <Route exact path="/" component={Home} />
 
@@ -29,7 +29,7 @@ class AppContainer extends Component {
             <Route exact path="/users/login" component={Login} />
             <Route exact path="/users/logout" component={Logout} />
           </Switch>
-        </Layout>
+        </LayoutContainer>
       </BrowserRouter>
     );
   }

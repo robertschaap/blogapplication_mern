@@ -6,7 +6,7 @@ import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { getAuth } from "../redux";
 
-const Layout = ({ children, loggedIn }) => (
+const LayoutContainer = ({ children, loggedIn }) => (
   <div>
     <Header loggedIn={loggedIn} />
       {children}
@@ -20,4 +20,4 @@ const mapStateToProps = state => ({
 
 export default withRouter(connect(
   mapStateToProps
-)(Layout));
+)(LayoutContainer));
