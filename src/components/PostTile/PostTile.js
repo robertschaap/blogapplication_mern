@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import styles from "./PostTile.scss";
 import cx from "classnames";
 
-const PostTile = ({ large, medium, id, title, author }) => {
+const PostTile = React.memo(({ large, medium, id, title, author }) => {
 
   let hasImage = (large || medium);
   const random = Math.floor(Math.random()* 6) + 1;
@@ -28,6 +28,6 @@ const PostTile = ({ large, medium, id, title, author }) => {
       </Link>
     </article>
   );
-};
+});
 
 export default PostTile;
