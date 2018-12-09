@@ -4,7 +4,7 @@ import { loadOnePost, getLoadOnePost, getAuth, getUser } from "../redux";
 
 import Post from "../components/Post";
 
-class PostsOne extends Component {
+class PostsOneContainer extends Component {
   componentWillMount() {
     let { id } = this.props.match.params;
 
@@ -44,4 +44,4 @@ const mapDispatchToProps = {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(PostsOne);
+)(PostsOneContainer);
