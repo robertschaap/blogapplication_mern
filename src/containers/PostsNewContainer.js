@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { getUser, submitPost } from "../redux";
 import PostForm from "../components/PostForm";
 
-class PostsNew extends Component {
+class PostsNewContainer extends Component {
   state = {
     formData: {
       title: "",
@@ -58,4 +58,4 @@ const mapDispatchToProps = {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(PostsNew);
+)(PostsNewContainer);

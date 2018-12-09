@@ -5,7 +5,7 @@ import LayoutContainer from "./LayoutContainer";
 import HomeContainer from "./HomeContainer";
 import PostsAllContainer from "./PostsAllContainer";
 import PostsOne from "./PostsOne";
-import PostsNew from "./PostsNew";
+import PostsNewContainer from "./PostsNewContainer";
 import UsersNew from "./UsersNew";
 import LoginContainer from "./LoginContainer";
 import LogoutContainer from "./LogoutContainer";
@@ -21,7 +21,7 @@ class AppContainer extends Component {
             <Route exact path="/" component={HomeContainer} />
 
             <Route exact path="/posts" component={PostsAllContainer} />
-            <ProtectedRoute path="/posts/new" component={PostsNew} />
+            <ProtectedRoute path="/posts/new" component={PostsNewContainer} />
             <Route path="/posts/:id([0-9a-fA-F]{24})" component={PostsOne} />
             <Route path="/posts/:category(\D+)" component={PostsAllContainer} />
 
