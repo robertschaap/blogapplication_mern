@@ -6,7 +6,7 @@ import HomeContainer from "./HomeContainer";
 import PostsAllContainer from "./PostsAllContainer";
 import PostsOneContainer from "./PostsOneContainer";
 import PostsNewContainer from "./PostsNewContainer";
-import UsersNew from "./UsersNew";
+import UsersNewContainer from "./UsersNewContainer";
 import LoginContainer from "./LoginContainer";
 import LogoutContainer from "./LogoutContainer";
 
@@ -25,7 +25,7 @@ class AppContainer extends Component {
             <Route path="/posts/:id([0-9a-fA-F]{24})" component={PostsOneContainer} />
             <Route path="/posts/:category(\D+)" component={PostsAllContainer} />
 
-            <Route exact path="/users/new" component={UsersNew} />
+            <Route exact path="/users/new" component={UsersNewContainer} />
             <Route exact path="/users/login" component={LoginContainer} />
             <Route exact path="/users/logout" component={LogoutContainer} />
           </Switch>

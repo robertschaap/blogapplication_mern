@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import SignupForm from "../components/SignupForm";
 
-class UsersNew extends Component {
+class UsersNewContainer extends Component {
   state = {
     formData: {
       firstName: "",
@@ -51,4 +51,4 @@ class UsersNew extends Component {
   }
 }
 
-export default UsersNew;
+export default UsersNewContainer;
