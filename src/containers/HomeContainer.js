@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { loadPosts, getLoadPosts } from "../redux";
 import PostTiles from "../components/PostTiles";
 
-class Home extends Component {
+class HomeContainer extends Component {
   componentWillMount() {
     this.props.posts;
   }
@@ -34,4 +34,4 @@ const mapDispatchToProps = {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Home);
+)(HomeContainer);

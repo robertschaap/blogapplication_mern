@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 import LayoutContainer from "./LayoutContainer";
-import Home from "./Home";
+import HomeContainer from "./HomeContainer";
 import PostsAll from "./PostsAll";
 import PostsOne from "./PostsOne";
 import PostsNew from "./PostsNew";
@@ -18,7 +18,7 @@ class AppContainer extends Component {
       <BrowserRouter>
         <LayoutContainer>
           <Switch>
-            <Route exact path="/" component={Home} />
+            <Route exact path="/" component={HomeContainer} />
 
             <Route exact path="/posts" component={PostsAll} />
             <ProtectedRoute path="/posts/new" component={PostsNew} />
