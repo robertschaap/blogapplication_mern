@@ -8,7 +8,7 @@ import PostsOne from "./PostsOne";
 import PostsNew from "./PostsNew";
 import UsersNew from "./UsersNew";
 import LoginContainer from "./LoginContainer";
-import Logout from "./Logout";
+import LogoutContainer from "./LogoutContainer";
 
 import ProtectedRoute from "./ProtectedRoute";
 
@@ -27,7 +27,7 @@ class AppContainer extends Component {
 
             <Route exact path="/users/new" component={UsersNew} />
             <Route exact path="/users/login" component={LoginContainer} />
-            <Route exact path="/users/logout" component={Logout} />
+            <Route exact path="/users/logout" component={LogoutContainer} />
           </Switch>
         </LayoutContainer>
       </BrowserRouter>

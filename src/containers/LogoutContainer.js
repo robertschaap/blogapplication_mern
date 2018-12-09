@@ -3,7 +3,7 @@ import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { clearAuth } from "../redux";
 
-class Logout extends Component {
+class LogoutContainer extends Component {
   componentDidMount() {
     this.props.clearAuth();
   }
@@ -22,4 +22,4 @@ const mapDispatchToProps = {
 export default connect(
   null,
   mapDispatchToProps
-)(Logout);
+)(LogoutContainer);
