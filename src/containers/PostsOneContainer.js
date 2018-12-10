@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { loadOnePost, getLoadOnePost, getAuth, getUser } from "../redux";
 
 import Post from "../components/Post";
+import PageTitle from "../components/PageTitle";
 
 class PostsOneContainer extends Component {
   componentWillMount() {
@@ -21,6 +22,7 @@ class PostsOneContainer extends Component {
 
     return (
       <main>
+        <PageTitle title={post.postBody.title} />
         <Post
           post={post}
           comments={comments}
