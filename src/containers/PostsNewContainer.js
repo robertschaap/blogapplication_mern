@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { getUser, submitPost } from "../redux";
 import PostForm from "../components/PostForm";
+import PageTitle from "../components/PageTitle";
 
 class PostsNewContainer extends Component {
   state = {
@@ -38,6 +39,7 @@ class PostsNewContainer extends Component {
   render() {
     return (
       <main>
+        <PageTitle title= "Create Something New" />
         <PostForm
           value={this.state.formData}
           onChange={this.handleChange}
