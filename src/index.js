@@ -8,6 +8,7 @@ import { createStore, applyMiddleware } from "redux";
 import { reducers } from "./redux.js";
 import reduxPromise from "redux-promise";
 
+import "./styles/normalize.css";
 import "./styles/index.scss";
 
 const store = createStore(
