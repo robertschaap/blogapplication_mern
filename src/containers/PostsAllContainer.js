@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { loadPosts, getLoadPosts } from "../redux";
 import CategoryHeader from "../components/CategoryHeader";
 import PostTiles from "../components/PostTiles";
+import PageTitle from "../components/PageTitle";
 
 class PostsAllContainer extends Component {
   componentDidMount() {
@@ -34,9 +35,12 @@ class PostsAllContainer extends Component {
   render() {
     const { posts } = this.props;
 
+    const currentPageHeader = this.getCategory();
+
     return (
       <main>
-        <CategoryHeader category={this.getCategory()} />
+        <PageTitle title={currentPageHeader} />
+        <CategoryHeader category={currentPageHeader} />
         <PostTiles posts={posts} />
       </main>
     );
