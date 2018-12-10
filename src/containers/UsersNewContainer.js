@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import SignupForm from "../components/SignupForm";
+import PageTitle from "../components/PageTitle";
 
 class UsersNewContainer extends Component {
   state = {
@@ -42,6 +43,7 @@ class UsersNewContainer extends Component {
   render() {
     return (
       <main>
+        <PageTitle title="Join Us!" />
         <SignupForm
           value={this.state.formData}
           onChange={this.handleChange}
