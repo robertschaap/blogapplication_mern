@@ -3,6 +3,7 @@ import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { getAuth, setAuth, setUser } from "../redux";
 import LoginForm from "../components/LoginForm";
+import PageTitle from "../components/PageTitle";
 
 class LoginContainer extends Component {
   state = {
@@ -52,6 +53,7 @@ class LoginContainer extends Component {
 
     return (
       <main>
+        <PageTitle title="Sign In" />
         <LoginForm
           value={this.state.formData}
           onChange={this.handleChange}
