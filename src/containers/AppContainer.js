@@ -12,11 +12,14 @@ import LogoutContainer from "./LogoutContainer";
 
 import ProtectedRouteContainer from "./ProtectedRouteContainer";
 
+import PageTitle from "../components/PageTitle";
+
 class AppContainer extends Component {
   render() {
     return (
       <BrowserRouter>
         <LayoutContainer>
+          <PageTitle />
           <Switch>
             <Route exact path="/" component={HomeContainer} />
 
