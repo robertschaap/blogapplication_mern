@@ -2,7 +2,7 @@ import React from "react";
 import { Helmet } from "react-helmet";
 
 const PageTitle = React.memo(({ title }) => {
-  const pageTitle = `Dotted Pixels - ${title}`;
+  const pageTitle = title ? `Dotted Pixels: ${title}` : "Dotted Pixels";
 
   return (
     <Helmet>
