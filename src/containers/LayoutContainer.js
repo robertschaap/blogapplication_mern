@@ -4,7 +4,7 @@ import Footer from "../components/Footer";
 
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
-import { getAuth } from "../redux";
+import { getAuth } from "../ducks/auth";
 
 const LayoutContainer = ({ children, loggedIn }) => (
   <div>

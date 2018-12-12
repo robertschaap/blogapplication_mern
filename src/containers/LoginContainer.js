@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
-import { getAuth, setAuth } from "../redux";
+import { getAuth, setAuth } from "../ducks/auth";
 import { setUser } from "../ducks/user";
 import LoginForm from "../components/LoginForm";
 import PageTitle from "../components/PageTitle";
