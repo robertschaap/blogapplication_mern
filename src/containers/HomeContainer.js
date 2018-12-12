@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { loadPosts, getLoadPosts } from "../redux";
+import { loadPosts, getLoadPosts } from "../ducks/posts";
 import PostTiles from "../components/PostTiles";
 
 class HomeContainer extends Component {
