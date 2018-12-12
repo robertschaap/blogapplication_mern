@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { loadOnePost, getLoadOnePost, getAuth, getUser } from "../redux";
+import { getAuth, getUser } from "../redux";
+import { loadOnePost, getLoadOnePost } from "../ducks/onePost";
 
 import Post from "../components/Post";
 import PageTitle from "../components/PageTitle";

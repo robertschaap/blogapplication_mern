@@ -1,33 +1,16 @@
 import { combineReducers } from "redux";
-
-const initialPostState = {
-  post: {
-    postAuthor: {},
-    postBody: {}
-  },
-  comments: []
-};
+import { onePost } from "./ducks/onePost";
 
 const initialFormState = {
   data: {},
   status: ""
 };
 
-const LOAD_ONE_POST = "LOAD_ONE_POST";
 const LOAD_POSTS = "LOAD_POSTS";
 const SUBMIT_FORM_SUCCESS = "SUBMIT_FORM_SUCCESS";
 const SET_AUTHTOKEN = "SET_AUTHTOKEN";
 const CLEAR_AUTHTOKEN = "CLEAR_AUTHTOKEN";
 const SET_USER = "SET_USER";
-
-export const onePost = (state = initialPostState, action) => {
-  switch (action.type) {
-  case LOAD_ONE_POST:
-    return action.payload;
-  default:
-    return state;
-  }
-};
 
 export const posts = (state = [], action) => {
   switch (action.type) {
@@ -76,15 +59,6 @@ export const reducers = combineReducers({
 });
 
 // Actions
-export const loadOnePost = async (id) => {
-  const response = await fetch(`/api/posts/${id}`);
-  const json = await response.json();
-
-  return {
-    type: LOAD_ONE_POST,
-    payload: json
-  };
-};
 
 export const loadPosts = async (category) => {
   const apiRoute = category
@@ -133,7 +107,6 @@ export const setUser = (payload) => ({
 });
 
 // Selector
-export const getLoadOnePost = state => state.onePost;
 export const getLoadPosts = state => state.posts;
 export const getAuth = state => state.auth;
 export const getUser = state => state.user;
