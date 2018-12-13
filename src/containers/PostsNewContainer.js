@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { submitPost } from "../redux";
+import { submitPost } from "../ducks/form";
 import { getUser } from "../ducks/user";
 import PostForm from "../components/PostForm";
 import PageTitle from "../components/PageTitle";
