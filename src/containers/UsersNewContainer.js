@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { submitNewUser } from "../ducks/form";
 import SignupForm from "../components/SignupForm";
 import PageTitle from "../components/PageTitle";
 
@@ -27,17 +29,7 @@ class UsersNewContainer extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-
-    fetch("/api/users/new", {
-      method: "post",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(this.state.formData)
-    })
-    .then(res => {
-      console.log(res);
-    });
+    this.props.submitNewUser(this.state.formData);
   }
 
   render() {
@@ -53,4 +45,11 @@ class UsersNewContainer extends Component {
   }
 }
 
-export default UsersNewContainer;
+const mapDispatchToProps = {
+  submitNewUser,
+};
+
+export default connect(
+  null,
+  mapDispatchToProps,
+)(UsersNewContainer);
