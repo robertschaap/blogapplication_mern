@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { submitComment } from "../ducks/form";
 import CommentForm from "../components/CommentForm";
 
 class CommentFormContainer extends Component {
@@ -27,17 +29,7 @@ class CommentFormContainer extends Component {
       postId: this.props.postId,
     };
 
-    fetch("/api/comments/new", {
-      method: "post",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(requestBody)
-    })
-    .then(res => {
-      // TODO: handle reponse
-      console.log(res);
-    });
+    this.props.submitComment(requestBody);
   }
 
   render() {
@@ -50,4 +42,11 @@ class CommentFormContainer extends Component {
   }
 }
 
-export default CommentFormContainer;
+const mapDispatchToProps = {
+  submitComment,
+};
+
+export default connect(
+  null,
+  mapDispatchToProps,
+)(CommentFormContainer);
