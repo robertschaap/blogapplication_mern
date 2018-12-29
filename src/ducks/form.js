@@ -49,3 +49,21 @@ export const submitNewUser = async (formBody) => {
     payload: json,
   };
 };
+
+export const submitComment = async (formBody) => {
+  const body = {
+    method: "post",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(formBody)
+  };
+
+  const response = await fetch("/api/comments/new", body);
+  const json = await response.json();
+
+  return {
+    type: SUBMIT_FORM_SUCCESS,
+    payload: json,
+  };
+};
