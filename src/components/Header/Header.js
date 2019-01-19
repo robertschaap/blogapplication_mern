@@ -1,10 +1,15 @@
+// @flow
 import React from "react";
 import styles from "./Header.scss";
 import LoginMenu from "../LoginMenu";
 import UserMenu from "../UserMenu";
 import Navigation from "../Navigation";
 
-const Header = ({ loggedIn }) => (
+type HeaderPropsType = {
+  loggedIn: boolean,
+};
+
+const Header = ({ loggedIn }: HeaderPropsType) => (
   <header
     className={styles.component}
     role="heading">
