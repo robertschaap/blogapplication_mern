@@ -1,3 +1,4 @@
+// @flow
 const SUBMIT_FORM_SUCCESS = "SUBMIT_FORM_SUCCESS";
 
 const initialFormState = {
@@ -5,7 +6,7 @@ const initialFormState = {
   status: ""
 };
 
-export const form = (state = initialFormState, action) => {
+export const form = (state: Object = initialFormState, action: Object) => {
   switch (action.type) {
   case SUBMIT_FORM_SUCCESS:
     return state;
@@ -14,7 +15,7 @@ export const form = (state = initialFormState, action) => {
   }
 };
 
-export const submitPost = async (formBody) => {
+export const submitPost = async (formBody: Object) => {
   const body = {
     method: "post",
     headers: {
@@ -32,7 +33,7 @@ export const submitPost = async (formBody) => {
   };
 };
 
-export const submitNewUser = async (formBody) => {
+export const submitNewUser = async (formBody: Object) => {
   const body = {
     method: "post",
     headers: {
@@ -50,7 +51,7 @@ export const submitNewUser = async (formBody) => {
   };
 };
 
-export const submitComment = async (formBody) => {
+export const submitComment = async (formBody: Object) => {
   const body = {
     method: "post",
     headers: {
