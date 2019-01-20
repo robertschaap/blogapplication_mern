@@ -1,7 +1,18 @@
+// @flow
 import React from "react";
 import styles from "./PostForm.scss";
 
-const PostForm = ({ value, onChange, onSubmit }) => {
+type PostFormPropsType = {
+  onChange: Function,
+  onSubmit: Function,
+  value: {
+    body: string,
+    category: string,
+    title: string,
+  },
+};
+
+const PostForm = ({ onChange, onSubmit, value }: PostFormPropsType) => {
 
   const { title, body, category } = value;
 
