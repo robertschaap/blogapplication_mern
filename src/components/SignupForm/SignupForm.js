@@ -1,15 +1,30 @@
+// @flow
 import React from "react";
 import styles from "./SignupForm.scss";
 
-const SignupForm = ({ value, onChange, onSubmit }) => {
+type SignupFormPropsType = {
+  onChange: Function,
+  onSubmit: Function,
+  value: {
+    bio: string,
+    email: string,
+    firstName: string,
+    lastName: string,
+    password: string,
+    passwordConfirm: string,
+    userName: string,
+  }
+}
+
+const SignupForm = ({ onChange, onSubmit, value }: SignupFormPropsType) => {
   const {
+    bio,
+    email,
     firstName,
     lastName,
-    email,
-    userName,
-    bio,
     password,
     passwordConfirm,
+    userName,
   } = value;
 
   return (
