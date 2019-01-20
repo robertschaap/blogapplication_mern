@@ -1,3 +1,4 @@
+// @flow
 import React from "react";
 import ReactDOM from "react-dom";
 import AppContainer from "./containers/AppContainer";
@@ -16,9 +17,14 @@ const store = createStore(
   applyMiddleware(reduxPromise),
 );
 
-ReactDOM.render(
-  <Provider store={store}>
-    <AppContainer />
-  </Provider>,
-  document.getElementById("root")
-);
+const root = document.getElementById("root");
+
+if (root) {
+  ReactDOM.render(
+    <Provider store={store}>
+      <AppContainer />
+    </Provider>,
+    root,
+  );
+}
+
