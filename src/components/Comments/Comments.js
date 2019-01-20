@@ -1,8 +1,13 @@
+// @flow
 import React from "react";
 import styles from "./Comments.scss";
 import Comment from "../Comment";
 
-const Comments = ({ comments }) => {
+type CommentsPropsType = {
+  comments: Array<Object>
+}
+
+const Comments = ({ comments }: CommentsPropsType) => {
   const renderedComments = comments.map((comment, index) => {
     return <Comment key={index} comment={comment} />;
   });
