@@ -1,12 +1,18 @@
+// @flow
 import React from "react";
 import styles from "./LoginForm.scss";
 
-const LoginForm = ({ value, onChange, onSubmit }) => {
+type LoginFormPropsType = {
+  onChange: Function,
+  onSubmit: Function,
+  value: Object,
+};
+
+const LoginForm = ({ onChange, onSubmit, value }: LoginFormPropsType) => {
   const {
     userName,
     password,
     remember,
-
   } = value;
 
   return (
