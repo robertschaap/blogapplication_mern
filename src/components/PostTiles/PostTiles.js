@@ -1,8 +1,14 @@
+// @flow
 import React from "react";
 import styles from "./PostTiles.scss";
 import PostTile from "../PostTile";
 
-const PostTiles = ({ homepage, posts }) => {
+type PostTilesPropsType = {
+  homepage: boolean,
+  posts: Array<Object>,
+}
+
+const PostTiles = ({ homepage, posts }: PostTilesPropsType) => {
 
   let tiles = posts.map((post, index) => {
 
