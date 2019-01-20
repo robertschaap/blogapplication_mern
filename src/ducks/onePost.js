@@ -1,3 +1,4 @@
+// @flow
 const LOAD_ONE_POST = "LOAD_ONE_POST";
 
 const initialPostState = {
@@ -8,7 +9,7 @@ const initialPostState = {
   comments: []
 };
 
-export const onePost = (state = initialPostState, action) => {
+export const onePost = (state: Object = initialPostState, action: Object) => {
   switch (action.type) {
   case LOAD_ONE_POST:
     return action.payload;
@@ -17,7 +18,7 @@ export const onePost = (state = initialPostState, action) => {
   }
 };
 
-export const loadOnePost = async (id) => {
+export const loadOnePost = async (id: string) => {
   const response = await fetch(`/api/posts/${id}`);
   const json = await response.json();
 
@@ -27,6 +28,6 @@ export const loadOnePost = async (id) => {
   };
 };
 
-export const getLoadOnePost = state => {
+export const getLoadOnePost = (state: Object) => {
   return state.onePost;
 };
