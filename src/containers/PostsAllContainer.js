@@ -1,11 +1,18 @@
-import React, { Component } from "react";
+// @flow
+import React from "react";
 import { connect } from "react-redux";
 import { loadPosts, getLoadPosts } from "../ducks/posts";
 import CategoryHeader from "../components/CategoryHeader";
 import PostTiles from "../components/PostTiles";
 import PageTitle from "../components/PageTitle";
 
-class PostsAllContainer extends Component {
+type PostsAllContainerPropsType = {
+  posts: Array<Object>,
+  loadPosts: Function,
+  match: Object,
+};
+
+class PostsAllContainer extends React.Component<PostsAllContainerPropsType> {
   componentDidMount() {
     let { category } = this.props.match.params;
 

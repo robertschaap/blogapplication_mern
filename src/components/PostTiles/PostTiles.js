@@ -4,7 +4,7 @@ import styles from "./PostTiles.scss";
 import PostTile from "../PostTile";
 
 type PostTilesPropsType = {
-  homepage: boolean,
+  homepage?: boolean,
   posts: Array<Object>,
 }
 
