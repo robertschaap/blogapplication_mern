@@ -1,9 +1,15 @@
-import React, { Component } from "react";
+// @flow
+import React from "react";
 import { connect } from "react-redux";
 import { loadPosts, getLoadPosts } from "../ducks/posts";
 import PostTiles from "../components/PostTiles";
 
-class HomeContainer extends Component {
+type HomeContainerPropsType = {
+  posts: Array<Object>,
+  loadPosts: Function,
+};
+
+class HomeContainer extends React.Component<HomeContainerPropsType> {
   componentWillMount() {
     this.props.posts;
   }
