@@ -1,4 +1,5 @@
-import React, { Component } from "react";
+// @flow
+import React from "react";
 import { connect } from "react-redux";
 import { getAuth } from "../ducks/auth";
 import { getUser } from "../ducks/user";
@@ -7,7 +8,15 @@ import { loadOnePost, getLoadOnePost } from "../ducks/onePost";
 import Post from "../components/Post";
 import PageTitle from "../components/PageTitle";
 
-class PostsOneContainer extends Component {
+type PostsOneContainerPropsType = {
+  loadOnePost: Function,
+  loggedIn: boolean,
+  loggedInUser: Object,
+  match: Object,
+  onePost: Object,
+};
+
+class PostsOneContainer extends React.Component<PostsOneContainerPropsType> {
   componentWillMount() {
     let { id } = this.props.match.params;
 
