@@ -1,3 +1,4 @@
+// @flow
 import React from "react";
 import styles from "./LoginMenu.scss";
 import { Link } from "react-router-dom";
