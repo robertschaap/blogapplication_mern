@@ -1,3 +1,4 @@
+// @flow
 import React, { Component } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
@@ -14,7 +15,9 @@ import ProtectedRouteContainer from "./ProtectedRouteContainer";
 
 import PageTitle from "../components/PageTitle";
 
-class AppContainer extends Component {
+type AppContainerPropsType = {};
+
+class AppContainer extends Component<AppContainerPropsType> {
   render() {
     return (
       <BrowserRouter>
