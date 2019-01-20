@@ -1,26 +1,41 @@
-import React, { Component } from "react";
+// @flow
+import React from "react";
 import { connect } from "react-redux";
 import { submitComment } from "../ducks/form";
 import CommentForm from "../components/CommentForm";
 
-class CommentFormContainer extends Component {
+type CommentFormContainerPropsType = {
+  userId: string,
+  postId: string,
+  submitComment: Function,
+};
+
+type CommentFormContainerStateType = {
+  formData: {
+    comment: string,
+  }
+};
+
+class CommentFormContainer extends React.Component<CommentFormContainerPropsType, CommentFormContainerStateType> {
   state = {
     formData: {
       comment: ""
     }
   }
 
-  handleChange = (event) => {
-    const { value } = event.target;
+  handleChange = (event: Event) => {
+    const { target } = event;
 
-    this.setState({
-      formData: {
-        comment: value
-      }
-    });
+    if (target instanceof HTMLInputElement) {
+      this.setState({
+        formData: {
+          comment: target.value,
+        }
+      });
+    }
   }
 
-  handleSubmit = (event) => {
+  handleSubmit = (event: Event) => {
     event.preventDefault();
 
     const requestBody = {
