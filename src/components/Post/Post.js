@@ -1,9 +1,17 @@
+// @flow
 import React, { Fragment } from "react";
 import styles from "./Post.scss";
 import Comments from "../Comments";
 import CommentFormContainer from "../../containers/CommentFormContainer";
 
-const Post = ({ post, comments, loggedIn, loggedInUser }) => {
+type PostPropsType = {
+  comments: Array<Object>,
+  loggedIn: boolean,
+  loggedInUser: Object,
+  post: Object,
+};
+
+const Post = ({ comments, loggedIn, loggedInUser, post }: PostPropsType) => {
   const { postAuthor, postBody } = post;
 
   const random = Math.floor(Math.random()* 6) + 1;
