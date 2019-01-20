@@ -1,6 +1,7 @@
+// @flow
 const LOAD_POSTS = "LOAD_POSTS";
 
-export const posts = (state = [], action) => {
+export const posts = (state: Array<Object> = [], action: Object) => {
   switch (action.type) {
   case LOAD_POSTS:
     return action.payload;
@@ -9,7 +10,7 @@ export const posts = (state = [], action) => {
   }
 };
 
-export const loadPosts = async (category) => {
+export const loadPosts = async (category: string) => {
   const apiRoute = category
     ? `/api/posts/${category ? category : ""}`
     : "/api/posts/";
@@ -23,6 +24,6 @@ export const loadPosts = async (category) => {
   };
 };
 
-export const getLoadPosts = state => {
+export const getLoadPosts = (state: Object) => {
   return state.posts;
 };
