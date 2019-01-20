@@ -1,8 +1,9 @@
+// @flow
 import React from "react";
 import styles from "./Footer.scss";
 
 const Footer = () => (
-  <footer 
+  <footer
     className={styles.component}
     role="contentinfo">
     <p>
