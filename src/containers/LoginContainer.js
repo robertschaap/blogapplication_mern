@@ -1,4 +1,5 @@
-import React, { Component } from "react";
+// @flow
+import React from "react";
 import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { getAuth, setAuth } from "../ducks/auth";
@@ -6,7 +7,20 @@ import { setUser } from "../ducks/user";
 import LoginForm from "../components/LoginForm";
 import PageTitle from "../components/PageTitle";
 
-class LoginContainer extends Component {
+type LoginContainerPropsType = {
+  loggedIn: boolean,
+  onHandleSubmit: Function,
+};
+
+type LoginContainerStateType = {
+  formData: {
+    userName: string,
+    password: string,
+    remember: false,
+  }
+};
+
+class LoginContainer extends React.Component<LoginContainerPropsType, LoginContainerStateType> {
   state = {
     formData: {
       userName: "",
@@ -15,21 +29,23 @@ class LoginContainer extends Component {
     },
   }
 
-  handleChange = (event) => {
+  handleChange = (event: Event) => {
     const { target } = event;
 
-    const name = target.name;
-    const value = target.type === "checkbox" ? target.checked : target.value;
+    if (target instanceof HTMLInputElement) {
+      const name = target.name;
+      const value = target.type === "checkbox" ? target.checked : target.value;
 
-    this.setState({
-      formData: {
-        ...this.state.formData,
-        [name]: value
-      }
-    });
+      this.setState({
+        formData: {
+          ...this.state.formData,
+          [name]: value
+        }
+      });
+    }
   }
 
-  handleSubmit = (event) => {
+  handleSubmit = (event: Event) => {
     event.preventDefault();
 
     fetch("/api/users/login", {
@@ -64,7 +80,7 @@ class LoginContainer extends Component {
   }
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   loggedIn: getAuth(state),
 });
 
