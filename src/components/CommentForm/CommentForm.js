@@ -1,7 +1,16 @@
+// @flow
 import React from "react";
 import styles from "./CommentForm.scss";
 
-const CommentForm = ({ value, onChange, onSubmit }) => (
+type CommentFormPropsType = {
+  onChange: Function,
+  onSubmit: Function,
+  value: {
+    comment: string,
+  },
+};
+
+const CommentForm = ({ onChange, onSubmit, value }: CommentFormPropsType) => (
   <section className={styles.component}>
     <h3>Add Comment</h3>
     <form onSubmit={onSubmit}>
