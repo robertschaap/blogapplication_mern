@@ -1,9 +1,14 @@
-import React, { Component } from "react";
+// @flow
+import React from "react";
 import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { clearAuth } from "../ducks/auth";
 
-class LogoutContainer extends Component {
+type LogoutContainerPropsType = {
+  clearAuth: Function,
+};
+
+class LogoutContainer extends React.Component<LogoutContainerPropsType> {
   componentDidMount() {
     this.props.clearAuth();
   }
@@ -16,7 +21,7 @@ class LogoutContainer extends Component {
 }
 
 const mapDispatchToProps = {
-  clearAuth
+  clearAuth,
 };
 
 export default connect(
