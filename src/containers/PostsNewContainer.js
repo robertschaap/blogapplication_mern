@@ -1,11 +1,25 @@
-import React, { Component } from "react";
+// @flow
+import React from "react";
 import { connect } from "react-redux";
 import { submitPost } from "../ducks/form";
 import { getUser } from "../ducks/user";
 import PostForm from "../components/PostForm";
 import PageTitle from "../components/PageTitle";
 
-class PostsNewContainer extends Component {
+type PostsNewContainerPropsType = {
+  loggedInUser: Object,
+  submitPost: Function,
+};
+
+type PostsNewContainerStateType = {
+  formData: {
+    title: string,
+    body: string,
+    category: string,
+  },
+};
+
+class PostsNewContainer extends React.Component<PostsNewContainerPropsType, PostsNewContainerStateType> {
   state = {
     formData: {
       title: "",
@@ -14,15 +28,19 @@ class PostsNewContainer extends Component {
     },
   }
 
-  handleChange = (event) => {
-    const { name, value } = event.target;
+  handleChange = (event: Event) => {
+    const { target } = event;
 
-    this.setState({
-      formData: {
-        ...this.state.formData,
-        [name]: value
-      }
-    });
+    if (target instanceof HTMLInputElement) {
+      const { name, value } = target;
+
+      this.setState({
+        formData: {
+          ...this.state.formData,
+          [name]: value
+        }
+      });
+    }
   }
 
   handleSubmit = (event) => {
