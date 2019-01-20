@@ -1,7 +1,18 @@
+// @flow
 import React from "react";
 import styles from "./Comment.scss";
 
-const Comment = ({ comment }) => {
+type CommentPropsType = {
+  comment: {
+    author: {
+      firstName: string,
+      lastName: string,
+    },
+    body: string,
+  },
+};
+
+const Comment = ({ comment }: CommentPropsType) => {
 
   const { author, body } = comment;
 
