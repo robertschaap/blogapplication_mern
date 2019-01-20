@@ -1,3 +1,4 @@
+// @flow
 import { combineReducers } from "redux";
 import { onePost } from "./ducks/onePost";
 import { posts } from "./ducks/posts";
