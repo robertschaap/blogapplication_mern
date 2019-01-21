@@ -76,6 +76,7 @@ const SignupForm = ({ onChange, onSubmit, value }: SignupFormPropsType) => {
         <label>Confirm Password</label>
         <input
           type="password"
+          name="passwordConfirm"
           value={passwordConfirm}
           onChange={onChange} />
         <button type="submit">Sign Up</button>
