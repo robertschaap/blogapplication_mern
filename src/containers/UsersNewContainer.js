@@ -37,7 +37,7 @@ class UsersNewContainer extends React.Component<UsersNewContainerPropsType, User
   handleChange = (event: Event) => {
     const { target } = event;
 
-    if (target instanceof HTMLInputElement) {
+    if (target instanceof HTMLInputElement || target instanceof HTMLTextAreaElement) {
       const { name, value } = target;
 
       this.setState({
@@ -55,6 +55,8 @@ class UsersNewContainer extends React.Component<UsersNewContainerPropsType, User
   }
 
   render() {
+    console.log(this.state.formData);
+
     return (
       <main>
         <PageTitle title="Join Us!" />
