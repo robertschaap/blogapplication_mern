@@ -1,7 +1,7 @@
 // @flow
 import React from "react";
 import { connect } from "react-redux";
-import { loadPosts, getLoadPosts } from "../ducks/posts";
+import { loadPosts, getPosts } from "../ducks/posts";
 import CategoryHeader from "../components/CategoryHeader";
 import PostTiles from "../components/PostTiles";
 import PageTitle from "../components/PageTitle";
@@ -54,7 +54,7 @@ class PostsAllContainer extends React.Component<PostsAllContainerPropsType> {
   }
 }
 const mapStateToProps = state => ({
-  posts: getLoadPosts(state)
+  posts: getPosts(state)
 });
 
 const mapDispatchToProps = {

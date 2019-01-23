@@ -36,6 +36,6 @@ export const loadPosts = async (category: string) => {
   };
 };
 
-export const getLoadPosts = (state: Object) => {
+export const getPosts = (state: Object) => {
   return state.posts.data;
 };

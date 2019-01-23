@@ -1,7 +1,7 @@
 // @flow
 import React from "react";
 import { connect } from "react-redux";
-import { loadPosts, getLoadPosts } from "../ducks/posts";
+import { loadPosts, getPosts } from "../ducks/posts";
 import PostTiles from "../components/PostTiles";
 
 type HomeContainerPropsType = {
@@ -30,7 +30,7 @@ class HomeContainer extends React.Component<HomeContainerPropsType> {
 }
 
 const mapStateToProps = state => ({
-  posts: getLoadPosts(state)
+  posts: getPosts(state)
 });
 
 const mapDispatchToProps = {
