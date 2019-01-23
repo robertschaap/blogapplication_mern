@@ -1,7 +1,19 @@
 // @flow
 const LOAD_POSTS = "LOAD_POSTS";
 
-export const posts = (state: Array<Object> = [], action: Object) => {
+type PostsCollectionStateType = {
+  isFetching: boolean,
+  data: Array<Object>,
+  error?: string,
+};
+
+const initialState: PostsCollectionStateType = {
+  isFetching: false,
+  data: [],
+  error: "",
+};
+
+export const posts = (state: PostsCollectionStateType = initialState, action: Object) => {
   switch (action.type) {
   case LOAD_POSTS:
     return action.payload;
@@ -25,5 +37,5 @@ export const loadPosts = async (category: string) => {
 };
 
 export const getLoadPosts = (state: Object) => {
-  return state.posts;
+  return state.posts.data;
 };
