@@ -23,6 +23,7 @@ export const posts = (state: PostsCollectionStateType = initialState, action: Ob
     return {
       ...state,
       isFetching: true,
+      error: "",
     };
   case FETCH_POSTS_RESPONSE:
     return {
@@ -47,7 +48,7 @@ const fetchPostsRequest = () => {
   };
 };
 
-const fetchPostsResponse = (payload: string) => {
+const fetchPostsResponse = (payload: *) => {
   return {
     type: FETCH_POSTS_RESPONSE,
     payload,
