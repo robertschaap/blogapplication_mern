@@ -1,5 +1,9 @@
 // @flow
-const LOAD_POSTS = "LOAD_POSTS";
+import { apiCall } from "./api";
+
+const FETCH_POSTS_REQUEST = "FETCH_POSTS_REQUEST";
+const FETCH_POSTS_RESPONSE = "FETCH_POSTS_RESPONSE";
+const FETCH_POSTS_ERROR = "FETCH_POSTS_ERROR";
 
 type PostsCollectionStateType = {
   isFetching: boolean,
@@ -15,25 +19,59 @@ const initialState: PostsCollectionStateType = {
 
 export const posts = (state: PostsCollectionStateType = initialState, action: Object) => {
   switch (action.type) {
-  case LOAD_POSTS:
-    return action.payload;
+  case FETCH_POSTS_REQUEST:
+    return {
+      ...state,
+      isFetching: true,
+    };
+  case FETCH_POSTS_RESPONSE:
+    return {
+      ...state,
+      data: action.payload,
+      isFetching: false,
+    };
+  case FETCH_POSTS_ERROR:
+    return {
+      ...state,
+      isFetching: false,
+      error: action.error,
+    };
   default:
     return state;
   }
 };
 
-export const loadPosts = async (category: string) => {
+const fetchPostsRequest = () => {
+  return {
+    type: FETCH_POSTS_REQUEST,
+  };
+};
+
+const fetchPostsResponse = (payload: string) => {
+  return {
+    type: FETCH_POSTS_RESPONSE,
+    payload,
+  };
+};
+
+const fetchPostsError = (errorMessage?: string) => {
+  return {
+    type: FETCH_POSTS_ERROR,
+    error: errorMessage,
+  };
+};
+
+export const loadPosts = (category: string) => {
   const apiRoute = category
     ? `/api/posts/${category ? category : ""}`
     : "/api/posts/";
 
-  const response = await fetch(apiRoute);
-  const json = await response.json();
-
-  return {
-    type: LOAD_POSTS,
-    payload: json
-  };
+  return apiCall({
+    requestPath: apiRoute,
+    onApiRequest: fetchPostsRequest,
+    onApiResponse: fetchPostsResponse,
+    onApiError: fetchPostsError,
+  });
 };
 
 export const getPosts = (state: Object) => {
