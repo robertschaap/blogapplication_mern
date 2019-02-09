@@ -6,7 +6,7 @@ router.get("/:category(\\D+)" , (req, res) => {
   const { category } = req.params;
 
   db.Posts.allPosts(category).then(posts => {
-    res.json(posts);
+    res.json({ data: posts });
   });
 });
 
@@ -14,13 +14,13 @@ router.get("/:id([0-9a-fA-F]{24})" , (req, res) => {
   const { id } = req.params;
 
   db.Posts.onePost(id).then(post => {
-    res.json(post);
+    res.json({ data: post });
   });
 });
 
 router.get("/" , (req, res) => {
   db.Posts.allPosts().then(posts => {
-    res.json(posts);
+    res.json({ data: posts });
   });
 });
 
@@ -33,7 +33,7 @@ router.post("/new", (req, res) => {
   };
 
   db.Posts.new(post).then(post => {
-    res.json(post);
+    res.json({ data: post });
   });
 });
 
