@@ -11,7 +11,6 @@ router.post("/new" , (req, res) => {
   });
 });
 
-// TODO: proper API status codes and pw enc/decr
 router.post("/login", (req, res) => {
   const { userName, password } = req.body;
 
