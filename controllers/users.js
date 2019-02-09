@@ -7,7 +7,7 @@ router.post("/new" , (req, res) => {
   const user = req.body;
 
   db.Users.new(user).then(user => {
-    res.json(user);
+    res.json({ data: user });
   });
 });
 
@@ -31,16 +31,16 @@ router.post("/login", (req, res) => {
           )
         };
 
-        res.json(response);
+        res.json({ data: response });
       } else {
-        res.json("denied");
+        res.json({ message: "access denied" });
       }
     });
 });
 
 router.get("/logout", (req, res) => {
   console.log(req.body);
-  res.json("done");
+  res.json({ message: "succesfully logged out" });
 });
 
 module.exports = router;
