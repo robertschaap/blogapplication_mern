@@ -38,9 +38,4 @@ router.post("/login", (req, res) => {
     });
 });
 
-router.get("/logout", (req, res) => {
-  console.log(req.body);
-  res.json({ message: "succesfully logged out" });
-});
-
 module.exports = router;
