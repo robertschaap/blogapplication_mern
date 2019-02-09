@@ -10,7 +10,7 @@ router.post("/new", (req, res) => {
   };
 
   db.Comments.new(comment).then(comment => {
-    res.json(comment);
+    res.json({ data: comment });
   });
 
 });
