@@ -41,7 +41,7 @@ const Post = ({ comments, loggedIn, loggedInUser, post }: PostPropsType) => {
           {loggedIn && (
             <CommentFormContainer
               postId={postBody._id}
-              user={loggedInUser.id} />
+              userId={loggedInUser.id} />
           )}
 
         </div>
