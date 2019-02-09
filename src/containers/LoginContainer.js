@@ -57,7 +57,7 @@ class LoginContainer extends React.Component<LoginContainerPropsType, LoginConta
     })
     .then(res => res.json())
     .then(res => {
-      if (res.token) {
+      if (res.data.token) {
         this.props.onHandleSubmit(res);
       }
     });
@@ -86,8 +86,8 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   onHandleSubmit: (login) => {
-    dispatch(setAuth(login.token));
-    dispatch(setUser(login.user));
+    dispatch(setAuth(login.data.token));
+    dispatch(setUser(login.data.user));
   }
 });
 
