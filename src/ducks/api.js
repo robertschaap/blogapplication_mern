@@ -1,7 +1,7 @@
 // @flow
 type ApiCallParamsPropsType = {
   requestPath: string,
-  requestHeaders?: Object,
+  requestBody?: Object,
   onApiRequest: () => Object,
   onApiResponse: (payload: string) => Object,
   onApiError: (message: string) => Object,
@@ -10,7 +10,7 @@ type ApiCallParamsPropsType = {
 export const apiCall = (params: ApiCallParamsPropsType) => async (dispatch: Function) => {
   const {
     requestPath,
-    requestHeaders,
+    requestBody,
     onApiRequest,
     onApiResponse,
     onApiError,
@@ -19,7 +19,7 @@ export const apiCall = (params: ApiCallParamsPropsType) => async (dispatch: Func
   dispatch(onApiRequest());
 
   try {
-    const response = await fetch(requestPath, requestHeaders);
+    const response = await fetch(requestPath, requestBody);
     const payload = await response.json();
 
     if (response.status !== 200) {
