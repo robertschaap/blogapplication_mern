@@ -18,8 +18,20 @@ export const apiCall = (params: ApiCallParamsPropsType) => async (dispatch: Func
 
   dispatch(onApiRequest());
 
+  const requestOptions = {
+    method: "post",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: "",
+  };
+
+  if (requestBody) {
+    requestOptions.body = JSON.stringify(requestBody);
+  }
+
   try {
-    const response = await fetch(requestPath, requestBody);
+    const response = await fetch(requestPath, requestBody ? requestOptions : undefined);
     const payload = await response.json();
 
     if (response.status !== 200) {

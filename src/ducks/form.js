@@ -41,17 +41,10 @@ const submitFormError = (errorMessage?: string) => {
 
 export const submitPost = async (formBody: Object) => {
   const apiRoute = "/api/posts/new";
-  const body = {
-    method: "post",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(formBody)
-  };
 
   return apiCall({
     requestPath: apiRoute,
-    requestBody: body,
+    requestBody: formBody,
     onApiRequest: submitFormRequest,
     onApiResponse: submitFormResponse,
     onApiError: submitFormError,
@@ -60,17 +53,10 @@ export const submitPost = async (formBody: Object) => {
 
 export const submitNewUser = async (formBody: Object) => {
   const apiRoute = "/api/users/new";
-  const body = {
-    method: "post",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(formBody)
-  };
 
   return apiCall({
     requestPath: apiRoute,
-    requestBody: body,
+    requestBody: formBody,
     onApiRequest: submitFormRequest,
     onApiResponse: submitFormResponse,
     onApiError: submitFormError,
@@ -79,17 +65,10 @@ export const submitNewUser = async (formBody: Object) => {
 
 export const submitComment = async (formBody: Object) => {
   const apiRoute = "/api/comments/new";
-  const body = {
-    method: "post",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(formBody)
-  };
 
   return apiCall({
     requestPath: apiRoute,
-    requestBody: body,
+    requestBody: formBody,
     onApiRequest: submitFormRequest,
     onApiResponse: submitFormResponse,
     onApiError: submitFormError,
