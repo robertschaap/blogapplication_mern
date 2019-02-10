@@ -1,5 +1,5 @@
 // @flow
-const SUBMIT_FORM_SUCCESS = "SUBMIT_FORM_SUCCESS";
+const SUBMIT_FORM_RESPONSE = "SUBMIT_FORM_RESPONSE";
 
 const initialFormState = {
   data: {},
@@ -8,7 +8,7 @@ const initialFormState = {
 
 export const form = (state: Object = initialFormState, action: Object) => {
   switch (action.type) {
-  case SUBMIT_FORM_SUCCESS:
+  case SUBMIT_FORM_RESPONSE:
     return state;
   default:
     return state;
@@ -28,7 +28,7 @@ export const submitPost = async (formBody: Object) => {
   const json = await response.json();
 
   return {
-    type: SUBMIT_FORM_SUCCESS,
+    type: SUBMIT_FORM_RESPONSE,
     payload: json
   };
 };
@@ -46,7 +46,7 @@ export const submitNewUser = async (formBody: Object) => {
   const json = await response.json();
 
   return {
-    type: SUBMIT_FORM_SUCCESS,
+    type: SUBMIT_FORM_RESPONSE,
     payload: json,
   };
 };
@@ -64,7 +64,7 @@ export const submitComment = async (formBody: Object) => {
   const json = await response.json();
 
   return {
-    type: SUBMIT_FORM_SUCCESS,
+    type: SUBMIT_FORM_RESPONSE,
     payload: json,
   };
 };
