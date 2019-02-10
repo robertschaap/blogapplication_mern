@@ -59,6 +59,7 @@ export const submitPost = async (formBody: Object) => {
 };
 
 export const submitNewUser = async (formBody: Object) => {
+  const apiRoute = "/api/users/new";
   const body = {
     method: "post",
     headers: {
@@ -67,13 +68,13 @@ export const submitNewUser = async (formBody: Object) => {
     body: JSON.stringify(formBody)
   };
 
-  const response = await fetch("/api/users/new", body);
-  const json = await response.json();
-
-  return {
-    type: SUBMIT_FORM_RESPONSE,
-    payload: json,
-  };
+  return apiCall({
+    requestPath: apiRoute,
+    requestBody: body,
+    onApiRequest: submitFormRequest,
+    onApiResponse: submitFormResponse,
+    onApiError: submitFormError,
+  });
 };
 
 export const submitComment = async (formBody: Object) => {
