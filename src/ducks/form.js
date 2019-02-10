@@ -1,5 +1,9 @@
 // @flow
+import { apiCall } from "./api";
+
+const SUBMIT_FORM_REQUEST = "SUBMIT_FORM_REQUEST";
 const SUBMIT_FORM_RESPONSE = "SUBMIT_FORM_RESPONSE";
+const SUBMIT_FORM_ERROR = "SUBMIT_FORM_ERROR";
 
 const initialFormState = {
   data: {},
@@ -15,7 +19,28 @@ export const form = (state: Object = initialFormState, action: Object) => {
   }
 };
 
+const submitFormRequest = () => {
+  return {
+    type: SUBMIT_FORM_REQUEST,
+  };
+};
+
+const submitFormResponse = (payload: *) => {
+  return {
+    type: SUBMIT_FORM_RESPONSE,
+    payload,
+  };
+};
+
+const submitFormError = (errorMessage?: string) => {
+  return {
+    type: SUBMIT_FORM_ERROR,
+    error: errorMessage,
+  };
+};
+
 export const submitPost = async (formBody: Object) => {
+  const apiRoute = "/api/posts/new";
   const body = {
     method: "post",
     headers: {
@@ -24,13 +49,13 @@ export const submitPost = async (formBody: Object) => {
     body: JSON.stringify(formBody)
   };
 
-  const response = await fetch("/api/posts/new", body);
-  const json = await response.json();
-
-  return {
-    type: SUBMIT_FORM_RESPONSE,
-    payload: json
-  };
+  return apiCall({
+    requestPath: apiRoute,
+    requestBody: body,
+    onApiRequest: submitFormRequest,
+    onApiResponse: submitFormResponse,
+    onApiError: submitFormError,
+  });
 };
 
 export const submitNewUser = async (formBody: Object) => {
