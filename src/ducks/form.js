@@ -6,14 +6,31 @@ const SUBMIT_FORM_RESPONSE = "SUBMIT_FORM_RESPONSE";
 const SUBMIT_FORM_ERROR = "SUBMIT_FORM_ERROR";
 
 const initialFormState = {
+  isFetching: false,
   data: {},
-  status: ""
+  error: "",
 };
 
 export const form = (state: Object = initialFormState, action: Object) => {
   switch (action.type) {
+  case SUBMIT_FORM_REQUEST:
+    return {
+      ...state,
+      isFetching: true,
+      error: "",
+    };
   case SUBMIT_FORM_RESPONSE:
-    return state;
+    return {
+      ...state,
+      data: action.payload,
+      isFetching: false,
+    };
+  case SUBMIT_FORM_ERROR:
+    return {
+      ...state,
+      isFetching: false,
+      error: action.error,
+    };
   default:
     return state;
   }
