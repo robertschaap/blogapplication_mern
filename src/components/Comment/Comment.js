@@ -13,7 +13,6 @@ type CommentPropsType = {
 };
 
 const Comment = ({ comment }: CommentPropsType) => {
-
   const { author, body } = comment;
 
   return (
