@@ -55,8 +55,6 @@ class UsersNewContainer extends React.Component<UsersNewContainerPropsType, User
   }
 
   render() {
-    console.log(this.state.formData);
-
     return (
       <main>
         <PageTitle title="Join Us!" />
