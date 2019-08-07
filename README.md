@@ -2,7 +2,7 @@
 A blog application where users can signup, post and read as well as comment on posts.
 
 ##### Technologies
-HTML5 | CSS3 | JavaScript | React | React-Router | Redux
+HTML5 | CSS3 | JavaScript | Flow | React | React-Router | Redux
 
 ### Scope
 ##### What it was designed to do
