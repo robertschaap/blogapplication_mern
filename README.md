@@ -15,4 +15,4 @@ HTML5 | CSS3 | JavaScript | Flow | React | React-Router | Redux
 ### Installation Notes
 Please feel free to download or clone the repository. This is just the front-end, back-end repositories are named `blog_be_*`. By default the front-end will run on port `3000` and will proxy calls to the API to port `4000`.
 
-Run the repository with `npm run start`
+Run the repository with `npm start`
