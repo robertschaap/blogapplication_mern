@@ -34,15 +34,11 @@ export const apiCall = (params: ApiCallParamsPropsType) => async (dispatch: Func
     const response = await fetch(requestPath, requestBody ? requestOptions : undefined);
     const payload = await response.json();
 
-    if (response.status !== 200) {
+    if (response.status !== 200 || payload.status === "error") {
       throw Error(String(response.status));
     }
 
-    if (payload.hasOwnProperty("data")) {
-      dispatch(onApiResponse(payload.data));
-    } else {
-      dispatch(onApiResponse(payload));
-    }
+    dispatch(onApiResponse(payload));
   } catch (error) {
     dispatch(onApiError("error"));
   }
